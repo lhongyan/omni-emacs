@@ -40,6 +40,7 @@
 ;;;; Usage
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;;;; Document Structure
 ;;; Motion
 ;; C-c C-n (org-next-visible-heading) --> Next heading
 ;; C-c C-p (org-previous-visible-heading) --> Previous heading
@@ -50,3 +51,7 @@
 
 ;;; Structure Editing
 ;; C-RET (org-insert-heading-respect-content) --> Insert a new heading at the end of the current subtree
+;; M-UP (org-move-subtree-up) --> Move subtree up
+;; M-DOWN (org-move-subtree-down) -->Move subtree down
+;; M-LEFT (org-do-promote) --> Promote current heading by one level
+;; M-RIGHT (org-do-demote) --> Demote current heading by one level
