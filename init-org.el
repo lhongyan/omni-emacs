@@ -60,7 +60,19 @@
 ;; M-LEFT (org-do-promote) --> Promote current heading by one level
 ;; M-RIGHT (org-do-demote) --> Demote current heading by one level
 
+;;; Drawers
+;; C-c C-x d (org-insert-drawer) --> insert drawer
+
 ;;;; TODO
 ;;; Checkbox
 ;; C-u C-c C-c 
-;; C-c C-c
+;; C-c C-c (org-toggle-checkbox) --> Toggle checkbox status
+;; C-c / t (org-show-todo-tree) --> View TODO items in a sparse tree
+
+;;;; Dates and Timestamps
+;;; Creating Timestamps 
+;; C-c . (org-time-stamp) --> Prompt for a date and insert a corresponding timestamp
+
+;;; Deadlines and Scheduling
+;; C-c C-d (org-deadline) --> Insert ‘DEADLINE’ keyword along with a stamp
+;; C-c C-s (org-schedule) --> Insert ‘SCHEDULED’ keyword along with a stamp
