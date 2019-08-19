@@ -7,12 +7,12 @@
 	(interactive)
 	(find-file "C:\\Users\\unixman\\AppData\\Roaming\\.emacs")
 )
-(global-set-key (kbd "<f2> c") 'open-my-config-file)
+(global-set-key (kbd "<f5> c") 'open-my-config-file)
 
 (defun bh/switch-to-scratch ()
   (interactive)
   (switch-to-buffer "*scratch*"))
-(global-set-key (kbd "<f2> s") 'bh/switch-to-scratch)
+(global-set-key (kbd "<f5> s") 'bh/switch-to-scratch)
 
 ;;;;
 (provide 'init-keybindings)
