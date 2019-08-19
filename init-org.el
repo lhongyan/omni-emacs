@@ -18,19 +18,23 @@
 
 ;; set todo keywords
 (setq org-todo-keywords
-      (quote ((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")
-              (sequence "WAITING(w@/!)" "HOLD(h@/!)" "|" "CANCELLED(c@/!)" "PHONE" "MEETING"))))
+    (quote (
+            (sequence "TODO(t)" "NEXT(n)" "DONE(d)" "HOLD(h)" "CANCELLED(c)")
+            (sequence "CALL(p)" "WAITING(w)" "AGENDA(a)"  "MEETING(m)" "MAIL(i)")
+        )
+    )
+)
 
 ;; set todo keywords backgroud color
 (setq org-todo-keyword-faces
-      (quote (("TODO" . (:foreground "white" :background "#95A5A6"   :weight bold))
-              ("NEXT" . (:foreground "blue" :background "#95A5A6"   :weight bold))
-              ("DONE" . (:foreground "forest green" :background "#95A5A6"   :weight bold))
-              ("WAITING" . (:foreground "orange" :background "#95A5A6"   :weight bold))
-              ("HOLD" . (:foreground "magenta" :background "#95A5A6"   :weight bold))
-              ("CANCELLED" . (:foreground "forest green" :background "#95A5A6"   :weight bold))
-              ("MEETING" . (:foreground "forest green" :background "#95A5A6"   :weight bold))
-              ("PHONE" . (:foreground "forest green" :background "#95A5A6"   :weight bold)))))
+      (quote (("TODO" . (:foreground "white"  :weight bold))
+              ("NEXT" . (:foreground "blue" :weight bold))
+              ("DONE" . (:foreground "forest green" :weight bold))
+              ("WAITING" . (:foreground "orange" :weight bold))
+              ("HOLD" . (:foreground "magenta" :weight bold))
+              ("CANCELLED" . (:foreground "red" :weight bold))
+              ("MEETING" . (:foreground "yello" :weight bold))
+              ("PHONE" . (:foreground "purple" :weight bold)))))
 
 ;;;;
 (provide 'init-org)
@@ -55,3 +59,8 @@
 ;; M-DOWN (org-move-subtree-down) -->Move subtree down
 ;; M-LEFT (org-do-promote) --> Promote current heading by one level
 ;; M-RIGHT (org-do-demote) --> Demote current heading by one level
+
+;;;; TODO
+;;; Checkbox
+;; C-u C-c C-c 
+;; C-c C-c
