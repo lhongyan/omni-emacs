@@ -22,5 +22,8 @@
 (setq-default indent-tabs-mode nil)
 (electric-indent-mode -1)
 
+;; cursor type
+(setq-default cursor-type 'bar)
+
 ;;;;
 (provide 'init-better-defaults)

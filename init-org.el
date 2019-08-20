@@ -13,8 +13,8 @@
 ;; open org-indent mode
 (setq org-startup-indented t)
 
-;; set bullet list
-(setq org-bullets-bullet-list '("☰"))
+;; set bullet list style
+(setq org-bullets-bullet-list '("?" "?" "?" "?"))
 
 ;; set todo keywords
 (setq org-todo-keywords
@@ -60,8 +60,17 @@
 ;; M-LEFT (org-do-promote) --> Promote current heading by one level
 ;; M-RIGHT (org-do-demote) --> Demote current heading by one level
 
+;;; Plain Lists
+;; M-UP / M-DOWN --> Move the item including subitems up/down
+;; M-LEFT / M-RIGHT --> Increase/Decrease then indentation of an item
+;; C-c C-c --> If there is a checkbox in the item line, toggle the state of the checkbox
+;; C-u C-c C-c --> Add the checkbox in the item line
+
 ;;; Drawers
 ;; C-c C-x d (org-insert-drawer) --> insert drawer
+
+;;; Block
+;; org-insert-columns-dblock --> insert block
 
 ;;;; TODO
 ;;; Checkbox
@@ -74,5 +83,5 @@
 ;; C-c . (org-time-stamp) --> Prompt for a date and insert a corresponding timestamp
 
 ;;; Deadlines and Scheduling
-;; C-c C-d (org-deadline) --> Insert ‘DEADLINE’ keyword along with a stamp
-;; C-c C-s (org-schedule) --> Insert ‘SCHEDULED’ keyword along with a stamp
+;; C-c C-d (org-deadline) --> Insert DEADLINE keyword along with a stamp
+;; C-c C-s (org-schedule) --> Insert SCHEDULED keyword along with a stamp
