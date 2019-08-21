@@ -13,13 +13,14 @@
 (defvar my/packages '(
 		    company
 		    smex
+            goto-chg
 		    evil
 		    which-key
             json-mode
             linum-relative
             ace-jump-mode
             atom-one-dark-theme
-            telephone-line
+            smart-mode-line
         ) "Default packages")
 
 (setq package-selected-packages my/packages)

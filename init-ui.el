@@ -27,5 +27,17 @@
 ;; window position
 (set-frame-position (selected-frame) 500 200)
 
+;; smart line mode
+(require 'smart-mode-line)
+(setq 
+    sml/themea 'dark
+    sml/no-confirm-load-theme t)
+(sml/setup)
+
+;; show time
+(display-time-mode 1)  
+(setq display-time-24hr-format t) 
+(setq display-time-day-and-date t)
+
 ;;;;
 (provide 'init-ui)

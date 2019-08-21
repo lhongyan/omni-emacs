@@ -6,7 +6,7 @@
 (global-linum-mode 1)
 
 ;; no backup
-(setq-default make-backup-files -1)
+(setq make-backup-files nil)
 
 ;; open selection mode
 (delete-selection-mode 1)
