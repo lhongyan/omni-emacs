@@ -19,8 +19,6 @@
             json-mode
             linum-relative
             ace-jump-mode
-            atom-one-dark-theme
-            smart-mode-line
         ) "Default packages")
 
 (setq package-selected-packages my/packages)

@@ -2,9 +2,6 @@
 ;;;; Change Emacs Default Setting
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; open line mode
-(global-linum-mode 1)
-
 ;; no backup
 (setq make-backup-files nil)
 
@@ -14,16 +11,16 @@
 ;; recent file
 (recentf-mode 1)
 
-;; close bell
-(setq visible-bell -1)
-
 ;;; indent setting
 (setq default-tab-width 4)
 (setq-default indent-tabs-mode nil)
-(electric-indent-mode -1)
+(electric-indent-mode nil)
 
-;; cursor type
-(setq-default cursor-type 'bar)
+;;设置默认读入文件编码
+(prefer-coding-system 'utf-8)
+
+;;设置写入文件编码
+(setq default-buffer-file-coding-system 'utf-8)
 
 ;;;;
 (provide 'init-better-defaults)

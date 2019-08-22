@@ -8,17 +8,26 @@
 ;; close scroll bar
 (scroll-bar-mode -1)
 
+;; close menu bar
+(menu-bar-mode -1)
+
 ;; cursor style
 (setq-default cursor-type 'bar)
 
 ;; heign line
 (global-hl-line-mode 1)
 
+;; cursor type
+(setq-default cursor-type 'bar)
+
+;; close bell
+(setq visible-bell nil)
+
 ;; close home page
 (setq inhibit-splash-screen 1)
 
 ;; theme
-(load-theme 'atom-one-dark 1)
+(load-theme 'atom-one-dark t)
 
 ;; window size
 (set-frame-width (selected-frame) 120)
@@ -26,18 +35,6 @@
 
 ;; window position
 (set-frame-position (selected-frame) 500 200)
-
-;; smart line mode
-(require 'smart-mode-line)
-(setq 
-    sml/themea 'dark
-    sml/no-confirm-load-theme t)
-(sml/setup)
-
-;; show time
-(display-time-mode 1)  
-(setq display-time-24hr-format t) 
-(setq display-time-day-and-date t)
 
 ;;;;
 (provide 'init-ui)
