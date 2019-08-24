@@ -11,19 +11,15 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		    ;; complete
-            company
-		    smex
-            which-key
+		;; complete
+          company
+          which-key
 
-            ;; motion
-            goto-chg
-		    evil
-            linum-relative
-            ace-jump-mode
+          ;; vim
+          undo-tree
+          goto-chg
+		evil
 
-            ;; org
-            org-bullets
         ) "Default packages")
 
 (setq package-selected-packages my/packages)

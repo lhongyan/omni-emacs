@@ -13,7 +13,7 @@
 
 ;;; indent setting
 (setq default-tab-width 4)
-(setq-default indent-tabs-mode nil)
+(setq default-indent-tabs-mode nil)
 (electric-indent-mode nil)
 
 ;; set read file encoding

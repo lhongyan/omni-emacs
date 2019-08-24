@@ -38,9 +38,12 @@
               ("MEETING" . (:foreground "yello" :weight bold))
               ("MAIL" . (:foreground "purple" :weight bold)))))
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(provide 'init-org)
+;; open org-indent mode
+(setq org-startup-indented t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'init-org)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Usage

@@ -2,13 +2,7 @@
 ;;;; Keyboard Setting 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; open config setting
-(defun open-my-config-file()
-	(interactive)
-	(find-file "C:\\Users\\unixman\\AppData\\Roaming\\.emacs")
-)
-(global-set-key (kbd "<f5> c") 'open-my-config-file)
-
+;; quick open scratch
 (defun bh/switch-to-scratch ()
   (interactive)
   (switch-to-buffer "*scratch*"))

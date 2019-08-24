@@ -26,8 +26,5 @@
 ;; Vim
 (require 'init-vim)
 
-;; Motion
-(require 'init-motion)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-emacs)
