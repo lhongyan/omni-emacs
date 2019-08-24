@@ -14,9 +14,6 @@
 ;; cursor style
 (setq-default cursor-type 'bar)
 
-;; close bell
-(setq visible-bell nil)
-
 ;; close home page
 (setq inhibit-splash-screen t)
 

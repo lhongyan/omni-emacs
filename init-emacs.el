@@ -31,24 +31,26 @@
 ;; close bibi voice
 (setq ring-bell-function 'ignore)
 
+;; close bell
+(setq visible-bell nil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Package Manager
+;;;; Module Manager
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Package
+;; Package Manager
 (require 'init-package)
 
 ;; UI
 (require 'init-ui)
 
-;; Complete
+;; Complete Frame
 (require 'init-complete)
 
 ;; Org Mode
 (require 'init-org)
 
-;; Vim
+;; Evil
 (require 'init-evil)
 
 
