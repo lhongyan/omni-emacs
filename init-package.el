@@ -20,6 +20,8 @@
           goto-chg
 		evil
 
+          ;; 
+          rainbow-delimiters
         ) "Default packages")
 
 (setq package-selected-packages my/packages)

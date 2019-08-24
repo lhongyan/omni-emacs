@@ -22,5 +22,8 @@
 ;; set write file encoding
 (setq default-buffer-file-coding-system 'utf-8)
 
+;; start the rainbow mode automatically in most programming modes (Emacs 24 and above)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-better-defaults)

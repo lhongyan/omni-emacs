@@ -14,17 +14,14 @@
 ;; Better Default
 (require 'init-better-defaults)
 
-;; Keybind Set
-(require 'init-keybindings)
+;; Complete
+(require 'init-complete)
 
 ;; Org Mode
 (require 'init-org)
 
-;; Complete
-(require 'init-complete)
-
 ;; Vim
-(require 'init-vim)
+(require 'init-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-emacs)
