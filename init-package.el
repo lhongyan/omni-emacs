@@ -24,9 +24,6 @@
 
             ;; org
             org-bullets
-
-            ;; language
-            json-mode
         ) "Default packages")
 
 (setq package-selected-packages my/packages)

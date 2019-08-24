@@ -20,9 +20,6 @@
 ;; Org Mode
 (require 'init-org)
 
-;; Json Mode
-(require 'init-json)
-
 ;; Complete
 (require 'init-complete)
 
