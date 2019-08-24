@@ -13,15 +13,16 @@
 (defvar my/packages '(
 		;; complete
           company
-          which-key
+          helm
 
-          ;; vim
+          ;; evil
           undo-tree
           goto-chg
 		evil
 
-          ;; 
+          ;; enhance
           rainbow-delimiters
+          popwin
         ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -38,5 +39,7 @@
        (when (not (package-installed-p pkg))
 	 (package-install pkg))))
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (provide 'init-package)

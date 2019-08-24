@@ -5,16 +5,13 @@
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
 (require 'org)
 
-;;; key bindings
+;; org key bindings
 (global-set-key "\C-c l" 'org-store-link)
 (global-set-key "\C-c a" 'org-agenda)
 (global-set-key "\C-c b" 'org-iswitchb)
 
 ;; open org-indent mode
 (setq org-startup-indented t)
-
-;; set bullet list style
-(setq org-bullets-bullet-list '( "?" "?" "?" "?" "?"))
 
 ;; set todo keywords
 (setq org-todo-keywords
@@ -41,13 +38,11 @@
 ;; open org-indent mode
 (setq org-startup-indented t)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-org)
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Usage
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;;; Document Structure
 ;;; Motion

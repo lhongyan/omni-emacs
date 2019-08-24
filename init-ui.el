@@ -14,12 +14,6 @@
 ;; cursor style
 (setq-default cursor-type 'bar)
 
-;; heign line
-(global-hl-line-mode t)
-
-;; cursor type
-(setq-default cursor-type 'bar)
-
 ;; close bell
 (setq visible-bell nil)
 
@@ -36,5 +30,7 @@
 ;; window position
 (set-frame-position (selected-frame) 500 200)
 
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (provide 'init-ui)
