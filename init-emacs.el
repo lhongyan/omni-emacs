@@ -32,5 +32,5 @@
 ;; Motion
 (require 'init-motion)
 
-;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-emacs)

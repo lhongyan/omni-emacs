@@ -16,11 +16,11 @@
 (setq-default indent-tabs-mode nil)
 (electric-indent-mode nil)
 
-;;设置默认读入文件编码
+;; set read file encoding
 (prefer-coding-system 'utf-8)
 
-;;设置写入文件编码
+;; set write file encoding
 (setq default-buffer-file-coding-system 'utf-8)
 
-;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-better-defaults)

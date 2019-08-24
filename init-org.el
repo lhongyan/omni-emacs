@@ -14,13 +14,14 @@
 (setq org-startup-indented t)
 
 ;; set bullet list style
-(setq org-bullets-bullet-list '("?" "?" "?" "?"))
+(setq org-bullets-bullet-list '( "?" "?" "?" "?" "?"))
 
 ;; set todo keywords
 (setq org-todo-keywords
     (quote (
-            (sequence "TODO(t)" "NEXT(n)" "DONE(d)" "HOLD(h)" "CANCELLED(c)")
-            (sequence "CALL(p)" "WAITING(w)" "AGENDA(a)"  "MEETING(m)" "MAIL(i)")
+            (setq "TODO(t)" "DONE(d)")
+            (sequence "HOLD(h)" "CANCELLED(c)")
+            (sequence "CALL(p)" "WAITING(w)" "AGENDA(a)" "MEETING(m)" "MAIL(i)")
         )
     )
 )
@@ -28,15 +29,16 @@
 ;; set todo keywords backgroud color
 (setq org-todo-keyword-faces
       (quote (("TODO" . (:foreground "white"  :weight bold))
-              ("NEXT" . (:foreground "blue" :weight bold))
               ("DONE" . (:foreground "forest green" :weight bold))
-              ("WAITING" . (:foreground "orange" :weight bold))
               ("HOLD" . (:foreground "magenta" :weight bold))
               ("CANCELLED" . (:foreground "red" :weight bold))
+              ("CALL" . (:foreground "blue" :weight bold))
+              ("WAITING" . (:foreground "orange" :weight bold))
+              ("AGENDA" . (:foreground "orange" :weight bold))
               ("MEETING" . (:foreground "yello" :weight bold))
-              ("PHONE" . (:foreground "purple" :weight bold)))))
+              ("MAIL" . (:foreground "purple" :weight bold)))))
 
-;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-org)
 
 
@@ -85,3 +87,9 @@
 ;;; Deadlines and Scheduling
 ;; C-c C-d (org-deadline) --> Insert DEADLINE keyword along with a stamp
 ;; C-c C-s (org-schedule) --> Insert SCHEDULED keyword along with a stamp
+
+;;;; Capture, Refile, Archive
+;;; Capture
+;; (setq org-default-notes-file (concat org-directory "/notes.org")) --> sets a default target file for notes.
+;; M-x org-capture (org-capture) --> Display the capture templates menu
+;; C-c C-c (org-capture-finalize) --> returns you to the window configuration before the capture process,

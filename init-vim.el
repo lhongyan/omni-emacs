@@ -20,5 +20,5 @@
 ;; TAB to indent in normal-state
 (define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command)
 
-;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-vim)

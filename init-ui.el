@@ -36,5 +36,5 @@
 ;; window position
 (set-frame-position (selected-frame) 500 200)
 
-;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-ui)

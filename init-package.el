@@ -11,14 +11,22 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		    company
+		    ;; complete
+            company
 		    smex
+            which-key
+
+            ;; motion
             goto-chg
 		    evil
-		    which-key
-            json-mode
             linum-relative
             ace-jump-mode
+
+            ;; org
+            org-bullets
+
+            ;; language
+            json-mode
         ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -35,5 +43,5 @@
        (when (not (package-installed-p pkg))
 	 (package-install pkg))))
 
-;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (provide 'init-package)
