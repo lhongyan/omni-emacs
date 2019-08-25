@@ -16,12 +16,6 @@
 (setq default-indent-tabs-mode nil)
 (electric-indent-mode nil)
 
-;; set read file encoding
-(prefer-coding-system 'utf-8)
-
-;; set write file encoding
-(setq default-buffer-file-coding-system 'utf-8)
-
 ;; start the rainbow mode automatically in most programming modes (Emacs 24 and above)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
@@ -44,10 +38,10 @@
 ;; UI
 (require 'init-ui)
 
-;; Complete Frame
+;; Complete
 (require 'init-complete)
 
-;; Org Mode
+;; Org
 (require 'init-org)
 
 ;; Evil

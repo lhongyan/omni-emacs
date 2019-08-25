@@ -27,6 +27,9 @@
 ;; window position
 (set-frame-position (selected-frame) 500 200)
 
+;; spaceline
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

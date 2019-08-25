@@ -26,6 +26,8 @@
             ;; enhance
             rainbow-delimiters
             
+            ;; ui
+            spaceline
         ) "Default packages")
 
 (setq package-selected-packages my/packages)
