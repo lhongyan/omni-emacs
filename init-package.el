@@ -14,6 +14,7 @@
 		;; complete
           company
           helm
+          which-key
 
           ;; evil
           undo-tree
