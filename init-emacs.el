@@ -53,6 +53,10 @@
 ;; Evil
 (require 'init-evil)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(provide 'init-emacs)
+
 ;; start time
 (add-hook 'emacs-startup-hook 
 (lambda () 
@@ -62,7 +66,3 @@
                 (time-subtract after-init-time before-init-time))) 
     gcs-done)
 ))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(provide 'init-emacs)
