@@ -11,19 +11,21 @@
 
 ;; Add Packages
 (defvar my/packages '(
-		;; complete
-          company
-          helm
-          which-key
+            use-package
 
-          ;; evil
-          undo-tree
-          goto-chg
-		evil
+		    ;; complete
+            company
+            helm
+            which-key
 
-          ;; enhance
-          rainbow-delimiters
-          popwin
+            ;; evil
+            undo-tree
+            goto-chg
+		    evil
+
+            ;; enhance
+            rainbow-delimiters
+            
         ) "Default packages")
 
 (setq package-selected-packages my/packages)
