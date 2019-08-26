@@ -30,6 +30,7 @@
 ;; spaceline
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
+(spaceline-toggle-minor-modes-off) ; hide minor mode
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
