@@ -25,7 +25,7 @@
 
             ;; enhance
             rainbow-delimiters
-            
+
             ;; ui
             spaceline
         ) "Default packages")
