@@ -1,4 +1,11 @@
-# Awesome Emacs 
+# Awesome Emacs For Writer
+
+## Premise
+
+- Base Emacs 26+
+- Require Source Code Pro For Powerline Font
+
+## Install
 
 - Clone this project
 

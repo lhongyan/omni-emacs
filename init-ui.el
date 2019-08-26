@@ -11,7 +11,7 @@
 ;; close menu bar
 (menu-bar-mode nil)
 
-;; cursor style
+;; cursor style like "|"
 (setq-default cursor-type 'bar)
 
 ;; close home page
