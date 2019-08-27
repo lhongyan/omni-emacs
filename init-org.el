@@ -16,9 +16,9 @@
 ;; set todo keywords
 (setq org-todo-keywords
     (quote (
-            (setq "TODO(t)" "DONE(d)")
-            (sequence "HOLD(h)" "CANCELLED(c)")
-            (sequence "CALL(p)" "WAITING(w)" "AGENDA(a)" "MEETING(m)" "MAIL(i)")
+            (sequence "TODO(t)" "DONE(d)" "HOLD(h)" "CANCELLED(c)")
+            (sequence "CALL/MAIL(p)" "WAITING(w)" "AGENDA(a)" "MEETING(m)")
+            (sequence "BUG(b)" "FIX(f)")
         )
     )
 )
