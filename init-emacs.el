@@ -18,7 +18,7 @@
 (require 'init-org)
 
 ;; Evil
-(require 'init-evil)
+;;(require 'init-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

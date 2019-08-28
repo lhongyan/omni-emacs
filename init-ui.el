@@ -30,8 +30,9 @@
 ;; spaceline
 (require 'spaceline-config)
 (spaceline-spacemacs-theme)
-;;(spaceline-toggle-minor-modes-off) ; hide minor mode
-(setq spaceline-minor-modes-separator " > ")
+(spaceline-toggle-minor-modes-off) ; hide minor mode
+(spaceline-toggle-major-mode-off)
+;;(setq spaceline-minor-modes-separator " > ")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
