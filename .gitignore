@@ -12,3 +12,6 @@
 
 # ignore local file which includes myself information
 init-local.el
+
+# ignore test
+test*
