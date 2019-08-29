@@ -11,20 +11,22 @@
 
 ;; Add Packages
 (defvar my/packages '(
-            use-package
-
-		    ;; complete
+            ;; complete
             company
             helm
             which-key
 
-            ;; evil
-            undo-tree
-            goto-chg
-		    evil
+            ;; jump
+            ace-jump-mode
+
+            ;; regin
+            expand-region
 
             ;; enhance
             rainbow-delimiters
+
+            ;; windows
+            switch-window
 
             ;; ui
             spaceline

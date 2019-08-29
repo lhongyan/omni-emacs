@@ -43,5 +43,22 @@
 ))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; better move
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define-key global-map (kbd "M-g g") 'ace-jump-mode)
+(define-key global-map (kbd "M-g l") 'ace-jump-line-mode)
+(define-key global-map (kbd "M-g c") 'ace-jump-char-mode)
+(define-key global-map (kbd "M-g w") 'ace-jump-word-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; quick choose regin
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(setq alphabet-start "abc def")
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-better)
