@@ -29,8 +29,18 @@
 ;;;; enhance emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; start the rainbow mode automatically in most programming modes (Emacs 24 and above)
+;; start the rainbow mode automatically
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
+;; show startup time
+(add-hook 'emacs-startup-hook 
+(lambda () 
+    (message "Emacs ready in %s with %d garbage collections." 
+        (format "%.2f seconds" 
+            (float-time 
+                (time-subtract after-init-time before-init-time))) 
+    gcs-done)
+))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
