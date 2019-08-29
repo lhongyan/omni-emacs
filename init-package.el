@@ -30,6 +30,8 @@
 
             ;; ui
             spaceline
+
+            multiple-cursors
         ) "Default packages")
 
 (setq package-selected-packages my/packages)
