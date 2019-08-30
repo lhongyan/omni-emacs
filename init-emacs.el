@@ -17,7 +17,7 @@
 ;; Org
 (require 'init-org)
 
-;; Evil
+;; I donot want to use evil
 ;;(require 'init-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
