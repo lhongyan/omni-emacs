@@ -1,4 +1,4 @@
-# Awesome Emacs For Writer
+# Awesome Emacs
 
 ## Premise
 
