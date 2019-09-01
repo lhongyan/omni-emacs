@@ -1,0 +1,60 @@
+* Document Structure
+
+** Structure Editing
+| Key     | Command                            | Description                                            |
+|---------+------------------------------------+--------------------------------------------------------|
+| C-RET   | org-insert-heading-respect-content | insert a new heading at the end of the current subtree |
+| M-UP    | org-move-subtree-down              | Move subtree up                                        |
+| M-DOWN  | org-move-subtree-down              | Move subtree down                                      |
+| M-LEFT  | org-do-promote                     | Promote current heading by one level                   |
+| M-RIGHT | org-do-demote                      | Demote current heading by one level                    |
+
+** Plain Lists
+| Key            | Command | Description                                                               |
+|----------------+---------+---------------------------------------------------------------------------|
+| M-UP/M-DOWN    |         | Move the item including subitems up/down                                  |
+| M-LEFT/M-RIGHT |         | Increase/Decrease then indentation of an item                             |
+| C-c C-c        |         | If there is a checkbox in the item line, toggle the state of the checkbox |
+| C-u C-c C-c    |         | Add the checkbox in the item line                                         |
+
+** Drawers
+| Key       | Command           | Description   |
+|-----------+-------------------+---------------|
+| C-c C-x d | org-insert-drawer | insert drawer |
+
+** Block
+| Key | Command                   | Description  |
+|-----+---------------------------+--------------|
+|     | org-insert-columns-dblock | insert block |
+
+* Todo Items
+
+** Checkbox
+| Key         | Command             | Description                      |
+|-------------+---------------------+----------------------------------|
+| C-u C-c C-c |                     |                                  |
+| C-c C-c     | org-toggle-checkbox | Toggle checkbox status           |
+| C-c / t     | org-show-todo-tree  | View Todo items in a sparse tree |
+
+* Dates and Times
+
+** Creating Timestamps
+| Key   | Command        | Description                                            |
+|-------+----------------+--------------------------------------------------------|
+| C-c . | org-time-stamp | Prompt for a date and insert a corresponding timestamp |
+
+** Deadlines and Scheduling
+| Key     | Command      | Description                                 |
+|---------+--------------+---------------------------------------------|
+| C-c C-d | org-deadline | Insert Deadline keyword along with a stamp  |
+| C-c C-s | org-schedule | Insert SCHEDULED keyword along with a stamp |
+
+* Capture, Refile, Archive
+
+** Capture
+| Key     | Command              | Description                                                         |
+|---------+----------------------+---------------------------------------------------------------------|
+|         | org-capture          | Display the capture templates menu                                  |
+| C-c C-c | org-capture-finalize | returns you to the window configuration before the capture process, |
+
+

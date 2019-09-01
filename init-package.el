@@ -11,25 +11,13 @@
 
 ;; Add Packages
 (defvar my/packages '(
-        ;; complete
         company
         which-key
-
-        ;; jump
         ace-jump-mode
-
-        ;; regin
-        expand-region
-
-        ;; enhance
         rainbow-delimiters
         multiple-cursors
         simpleclip
-
-        ;; windows
         switch-window
-
-        ;; ui
         spaceline
     ) "Default packages")
 
@@ -46,7 +34,6 @@
     (dolist (pkg my/packages)
         (when (not (package-installed-p pkg))
 	(package-install pkg))))
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
