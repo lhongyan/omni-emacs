@@ -3,50 +3,49 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (when (>= emacs-major-version 24)
-     (require 'package)
-     (package-initialize)
-     (setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+    (require 'package)
+    (package-initialize)
+    (setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/"))))
 
 (require 'cl)
 
 ;; Add Packages
 (defvar my/packages '(
-            ;; complete
-            company
-            helm
-            which-key
+        ;; complete
+        company
+        which-key
 
-            ;; jump
-            ace-jump-mode
+        ;; jump
+        ace-jump-mode
 
-            ;; regin
-            expand-region
+        ;; regin
+        expand-region
 
-            ;; enhance
-            rainbow-delimiters
+        ;; enhance
+        rainbow-delimiters
+        multiple-cursors
+        simpleclip
 
-            ;; windows
-            switch-window
+        ;; windows
+        switch-window
 
-            ;; ui
-            spaceline
-
-            multiple-cursors
-        ) "Default packages")
+        ;; ui
+        spaceline
+    ) "Default packages")
 
 (setq package-selected-packages my/packages)
 
 (defun my/packages-installed-p ()
-     (loop for pkg in my/packages
-	   when (not (package-installed-p pkg)) do (return nil)
-	   finally (return t)))
+    (loop for pkg in my/packages
+	    when (not (package-installed-p pkg)) do (return nil)
+	    finally (return t)))
 
 (unless (my/packages-installed-p)
-     (message "%s" "Refreshing package database...")
-     (package-refresh-contents)
-     (dolist (pkg my/packages)
-       (when (not (package-installed-p pkg))
-	 (package-install pkg))))
+    (message "%s" "Refreshing package database...")
+    (package-refresh-contents)
+    (dolist (pkg my/packages)
+        (when (not (package-installed-p pkg))
+	(package-install pkg))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -46,15 +46,19 @@
 ;;;; better move
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; ace-jump
+;; ace-jump-mode
 (define-key global-map (kbd "M-g g") 'ace-jump-mode)
 (define-key global-map (kbd "M-g l") 'ace-jump-line-mode)
 (define-key global-map (kbd "M-g c") 'ace-jump-char-mode)
 (define-key global-map (kbd "M-g w") 'ace-jump-word-mode)
 
 ;; remap better move
-(define-key global-map (kbd "M-[") 'backward-paragraph)
-(define-key global-map (kbd "M-]") 'forward-paragraph)
+(define-key global-map (kbd "M-[") 'backward-sentence)
+(define-key global-map (kbd "M-]") 'forward-sentence)
+(define-key global-map (kbd "M-<left>") 'backward-paragraph)
+(define-key global-map (kbd "M-<down>") 'forward-paragraph)
+(define-key global-map (kbd "M-<up>") 'beginning-of-buffer)
+(define-key global-map (kbd "M-<right>") 'end-of-buffer)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; quick choose regin
@@ -63,16 +67,20 @@
 ;; expand-region
 (setq alphabet-start "abc def")
 (require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
+(define-key global-map (kbd "C-=") 'er/expand-region)
 
 ;; multiple-cursors
 (require 'multiple-cursors)
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(define-key global-map (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(define-key global-map (kbd "C->") 'mc/mark-next-like-this)
+(define-key global-map (kbd "C-<") 'mc/mark-previous-like-this)
 
-;; rmap C-@ / C-Space
-(define-key global-map (kbd "C-m") 'set-mark-command)
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; system clipboard
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(require 'simpleclip)
+(simpleclip-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
