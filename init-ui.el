@@ -3,13 +3,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; close tool bar
-(tool-bar-mode nil)
+(tool-bar-mode -1)
 
 ;; close scroll bar
 (scroll-bar-mode -1)
 
 ;; close menu bar
-(menu-bar-mode nil)
+(menu-bar-mode -1)
 
 ;; cursor style like "|"
 (setq-default cursor-type 'bar)

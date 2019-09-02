@@ -17,6 +17,9 @@
 ;; Org
 (require 'init-org)
 
+;; Evil
+(require 'init-evil)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-emacs)
