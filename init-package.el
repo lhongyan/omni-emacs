@@ -19,7 +19,6 @@
         simpleclip
         switch-window
         spaceline
-        elfeed
     ) "Default packages")
 
 (setq package-selected-packages my/packages)

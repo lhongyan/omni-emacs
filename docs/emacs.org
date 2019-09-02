@@ -1,10 +1,137 @@
-* Emacs ����
+*  Emacs base oncept
+** open file
 
-* �ļ��༭
+| Key     | Command             | Descriptin |
+|---------+---------------------+------------|
+| C-x C-f | find-file           |            |
+| C-x C-v | find-alternate-file |            |
+| C-x i   | insert-file         |            |
 
-* ���Һ��滻
+** save file
 
-* ���ںͻ���
+| key     | command     | descriptin |
+|---------+-------------+------------|
+| C-x C-s | save-buffer |            |
+| C-x C-w | write-file  |            |
 
-* ��������
+** help
+
+| key   | command                      | description |
+|-------+------------------------------+-------------|
+| C-x k | describe-key                 |             |
+| C-x f | describe-function            |             |
+| C-x t | help-with-tutorial           |             |
+| C-h i | info-goto-emacs-command-node |             |
+
+* Edit file
+
+** move cursor
+
+| key | command            | description |
+|-----+--------------------+-------------|
+| C-f | forward-char       |             |
+| C-b | backward-char      |             |
+| C-p | previous-line      |             |
+| C-n | next-line          |             |
+| M-f | forward-word       |             |
+| M-b | backward-word      |             |
+| C-a | begining-of-line   |             |
+| C-e | end-of-line        |             |
+| M-a | backward-sentence  |             |
+| M-e | forward-sentence   |             |
+| M-{ | backward-paragraph |             |
+| M-} | forward-paragraph  |             |
+| M-< | begining-of-buffer |             |
+| M-> | end-of-buffer      |             |
+| C-v | scroll-up          |             |
+| M-v | scroll-down        |             |
+| C-l | recenter           |             |
+
+** delete
+
+| key   | command                | description |
+|-------+------------------------+-------------|
+| C-d   | delete-char            |             |
+| DEL   | delete-backward-char   |             |
+| M-d   | kill-word              |             |
+| M DEL | backward-kill-word     |             |
+| C-k   | kill-line              |             |
+| C-w   | kill-region            |             |
+|       | kill-sentence          |             |
+|       | backward-kill-sentence |             |
+|       | kill-paragraph         |             |
+|       | backwad-kill-paragraph |             |
+
+** mark
+
+| key     | command                 | description |
+|---------+-------------------------+-------------|
+| C-@     | set-mark-command        |             |
+| C-x C-x | exchange-point-and-mark |             |
+| M-h     | mark-paragraph          |             |
+| C-x C-p | mark-page               |             |
+| C-x h   | mark-whole-buffer       |             |
+
+** edit skill
+
+*** exchange position
+
+| key | command              | description |
+|-----+----------------------+-------------|
+|     | transpose-chars      |             |
+|     | transpose-words      |             |
+|     | transpose-lines      |             |
+|     | transpose-sentence   |             |
+|     | transpose-paragraphs |             |
+
+*** change case
+
+| key | command         | description |
+|-----+-----------------+-------------|
+| M-c | capitalize-word |             |
+| M-u | upcase-word     |             |
+| M-l | downcase-word   |             |
+
+*** override mode
+
+| key | command        | description |
+|-----+----------------+-------------|
+|     | overwrite-mode |             |
+
+*** stop command
+
+| key | command | description |
+|-----+---------+-------------|
+| C-g |         |             |
+
+*** undo
+
+| key   | command | description |
+|-------+---------+-------------|
+| C-x u | undo    |             |
+
+*** revert buffer
+
+| key | command       | description |
+|-----+---------------+-------------|
+|     | revert-buffer |             |
+
+*** backup file
+
+*** recover file
+
+* search and replace
+
+** search
+
+- simple search：给出一个字符串，Emacs 会把该字符串在文件里的下次出现位置找出来
+- increase search：只要输入了查找字符串的第一个字符，Emacs 就开始进行查找。它会随着敲入的更多字符而继续进行查找
+- word search：Emacs 的单词查找操作与简单查找操作很相似，但简单查找只找出完整的单词或短语
+- regex search：
+- increase regex search：
+
+| key | command          | description |
+|-----+------------------+-------------|
+| C-s | isearch-forward  |             |
+| C-r | isearch-backward |             |
 
