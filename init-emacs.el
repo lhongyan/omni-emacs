@@ -20,6 +20,9 @@
 ;; Evil
 (require 'init-evil)
 
+;; Smex
+;;(require 'init-smex)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-emacs)
