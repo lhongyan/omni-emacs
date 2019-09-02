@@ -32,7 +32,6 @@
 ** Checkbox
 | Key         | Command             | Description                      |
 |-------------+---------------------+----------------------------------|
-| C-u C-c C-c |                     |                                  |
 | C-c C-c     | org-toggle-checkbox | Toggle checkbox status           |
 | C-c / t     | org-show-todo-tree  | View Todo items in a sparse tree |
 

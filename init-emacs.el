@@ -21,7 +21,7 @@
 (require 'init-evil)
 
 ;; Smex
-;;(require 'init-smex)
+(require 'init-smex)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

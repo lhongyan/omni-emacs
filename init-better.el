@@ -82,5 +82,17 @@
 (simpleclip-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; rss reader
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; feeds
+(setq elfeed-feeds
+        '(
+            "http://www.ruanyifeng.com/feed"
+            "http://36kr.com/feed"
+        )
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-better)
