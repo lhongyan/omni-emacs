@@ -2,26 +2,26 @@
 ;;;; Module Manager
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Package Manager
+;; package
 (require 'init-package)
 
-;; Better
+;; better
 (require 'init-better)
 
-;; UI
+;; ui
 (require 'init-ui)
 
-;; Complete
+;; complete
 (require 'init-complete)
 
-;; Org
+;; org
 (require 'init-org)
 
-;; Evil
-(require 'init-evil)
-
-;; Smex
+;; smex
 (require 'init-smex)
+
+;; evil
+;; (require 'init-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
