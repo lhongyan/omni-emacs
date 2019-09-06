@@ -13,12 +13,13 @@
 (defvar my/packages '(
         company
         which-key
+        helm
         ace-jump-mode
         rainbow-delimiters
         multiple-cursors
         simpleclip
         switch-window
-        spaceline
+        color-theme-sanityinc-tomorrow
     ) "Default packages")
 
 (setq package-selected-packages my/packages)

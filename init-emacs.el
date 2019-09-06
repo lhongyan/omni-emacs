@@ -18,7 +18,7 @@
 (require 'init-org)
 
 ;; smex
-(require 'init-smex)
+;;(require 'init-smex)
 
 ;; evil
 ;; (require 'init-evil)

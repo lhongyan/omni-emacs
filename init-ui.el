@@ -18,7 +18,9 @@
 (setq inhibit-splash-screen t)
 
 ;; theme
-(load-theme 'atom-one-dark t)
+;;(load-theme 'atom-one-dark t)
+(require 'color-theme-sanityinc-tomorrow)
+(color-theme-sanityinc-tomorrow-eighties)
 
 ;; window size
 (set-frame-width (selected-frame) 150)
@@ -26,13 +28,6 @@
 
 ;; window position
 (set-frame-position (selected-frame) 500 200)
-
-;; spaceline
-(require 'spaceline-config)
-(spaceline-spacemacs-theme)
-(spaceline-toggle-minor-modes-off) ; hide minor mode
-(spaceline-toggle-major-mode-off)
-;;(setq spaceline-minor-modes-separator " > ")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
