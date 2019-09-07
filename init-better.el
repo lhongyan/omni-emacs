@@ -61,7 +61,10 @@
 (require 'expand-region)
 (define-key global-map (kbd "C-=") 'er/expand-region)
 
-;; multiple-cursors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; multiple-cursors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (require 'multiple-cursors)
 (define-key global-map (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (define-key global-map (kbd "C->") 'mc/mark-next-like-this)
@@ -82,16 +85,11 @@
 (simpleclip-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; rss reader
+;;;; switch window
+;;;; use switch-window-mode quick switch window
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; feeds
-(setq elfeed-feeds
-        '(
-            "http://www.ruanyifeng.com/feed"
-            "http://36kr.com/feed"
-        )
-)
+(define-key global-map (kbd "C-x o") 'switch-window)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

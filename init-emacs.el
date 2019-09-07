@@ -17,11 +17,8 @@
 ;; org
 (require 'init-org)
 
-;; smex
-;;(require 'init-smex)
-
 ;; evil
-;; (require 'init-evil)
+(require 'init-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

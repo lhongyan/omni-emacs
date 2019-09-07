@@ -9,7 +9,7 @@
 
 (require 'cl)
 
-;; Add Packages
+;; Packages
 (defvar my/packages '(
         company
         which-key

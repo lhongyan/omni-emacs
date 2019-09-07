@@ -18,9 +18,7 @@
 (setq inhibit-splash-screen t)
 
 ;; theme
-;;(load-theme 'atom-one-dark t)
 (require 'color-theme-sanityinc-tomorrow)
-(color-theme-sanityinc-tomorrow-eighties)
 
 ;; window size
 (set-frame-width (selected-frame) 150)
