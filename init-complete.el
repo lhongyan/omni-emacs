@@ -18,13 +18,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; fuzzy match
-(setq helm-M-x-fuzzy-match t
+(setq 
+    helm-M-x-fuzzy-match t
     helm-buffers-fuzzy-matching t
-    helm-recentf-fuzzy-match t) 
+    helm-recentf-fuzzy-match t
+) 
 
 ;; load helm
 (require 'helm-config)
-(helm-mode 1)
 
 ;; key bindings
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -32,6 +33,8 @@
 (global-set-key (kbd "C-x C-r") 'helm-recentf)
 (global-set-key (kbd "C-x C-m") 'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+(helm-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
