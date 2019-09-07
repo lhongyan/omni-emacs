@@ -9,7 +9,7 @@
 (scroll-bar-mode -1)
 
 ;; close menu bar
-(menu-bar-mode -1)
+(menu-bar-mode 1)
 
 ;; cursor style like "|"
 (setq-default cursor-type 'bar)
@@ -26,6 +26,17 @@
 
 ;; window position
 (set-frame-position (selected-frame) 500 200)
+
+;; time
+(display-time-mode 1)
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t)
+
+;; high line
+(global-hl-line-mode 1)
+
+;; Font
+(set-face-attribute 'default nil :font "Monaco 12")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 

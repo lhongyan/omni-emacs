@@ -24,15 +24,15 @@
     helm-recentf-fuzzy-match t
 ) 
 
-;; load helm
+;; load helm config
 (require 'helm-config)
 
 ;; key bindings
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x C-b") 'helm-buffers-list)
-(global-set-key (kbd "C-x C-r") 'helm-recentf)
-(global-set-key (kbd "C-x C-m") 'helm-mini)
-(global-set-key (kbd "C-x C-f") 'helm-find-files)
+;(global-set-key (kbd "C-x C-r") 'helm-recentf)
+;(global-set-key (kbd "C-x C-m") 'helm-mini)
+;(global-set-key (kbd "C-x C-f") 'helm-find-files)
 
 (helm-mode 1)
 
