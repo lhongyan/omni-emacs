@@ -35,8 +35,14 @@
 ;; high line
 (global-hl-line-mode 1)
 
-;; Font
-(set-face-attribute 'default nil :font "Monaco 12")
+;; English Font
+(set-face-attribute
+'default nil :font "Source Code Pro for Powerline 12")
+;; Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+(set-fontset-font (frame-parameter nil 'font)
+charset
+(font-spec :family "STKaiTi" :size 14)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
