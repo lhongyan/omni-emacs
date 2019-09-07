@@ -1,9 +1,8 @@
 # Awesome Emacs
 
-## Premise
+## Require
 
-- Base Emacs 26+
-- Require Source Code Pro For Powerline Font
+- Emacs 24+
 
 ## Install
 
