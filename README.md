@@ -6,6 +6,32 @@
 - Consolas (English Font)
 - STKaiTi (Chinese Font)
 
+```lisp
+;; Mac OS
+
+;; English Font
+(set-face-attribute
+'default nil :font "Consolas 12")
+;; Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+(set-fontset-font (frame-parameter nil 'font)
+charset
+(font-spec :family "STKaiTi" :size 14)))
+```
+
+```lisp
+;; Windows
+
+;; English Font
+(set-face-attribute
+'default nil :font "Consolas 12")
+;; Chinese Font
+(dolist (charset '(kana han symbol cjk-misc bopomofo))
+(set-fontset-font (frame-parameter nil 'font)
+charset
+(font-spec :family "STKaiTi" :size 18)))
+```
+
 ## Install
 
 - Clone this project

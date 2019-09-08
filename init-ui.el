@@ -35,15 +35,6 @@
 ;; high line
 (global-hl-line-mode 1)
 
-;; English Font
-(set-face-attribute
-'default nil :font "Consolas 12")
-;; Chinese Font
-(dolist (charset '(kana han symbol cjk-misc bopomofo))
-(set-fontset-font (frame-parameter nil 'font)
-charset
-(font-spec :family "STKaiTi" :size 18)))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-ui)
