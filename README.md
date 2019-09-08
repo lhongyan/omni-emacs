@@ -3,6 +3,8 @@
 ## Require
 
 - Emacs 24+
+- Consolas (English Font)
+- STKaiTi (Chinese Font)
 
 ## Install
 
@@ -18,4 +20,4 @@
 (require 'init-emacs)
 ```
 
-- Enjoy Awesome Emacs
+- Enjoy Emacs
