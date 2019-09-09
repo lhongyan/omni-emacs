@@ -11,6 +11,7 @@
 
 ;; Packages
 (defvar my/packages '(
+        use-package
         company
         which-key
         helm
