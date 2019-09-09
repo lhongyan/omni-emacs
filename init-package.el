@@ -14,7 +14,7 @@
         company
         which-key
         helm
-	    magit
+        magit
         ace-jump-mode
         rainbow-delimiters
         multiple-cursors
