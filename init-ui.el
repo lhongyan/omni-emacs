@@ -9,7 +9,7 @@
 (scroll-bar-mode -1)
 
 ;; close menu bar
-(menu-bar-mode 1)
+(menu-bar-mode -1)
 
 ;; cursor style like "|"
 (setq-default cursor-type 'bar)
