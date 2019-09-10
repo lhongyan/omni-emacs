@@ -53,22 +53,18 @@
 (define-key global-map (kbd "M-g w") 'ace-jump-word-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; quick choose regin
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; expand-region
-(setq alphabet-start "abc def")
-(require 'expand-region)
-(define-key global-map (kbd "C-=") 'er/expand-region)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; multiple-cursors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'multiple-cursors)
-(define-key global-map (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(define-key global-map (kbd "C->") 'mc/mark-next-like-this)
-(define-key global-map (kbd "C-<") 'mc/mark-previous-like-this)
+(use-package multiple-cursors
+    :ensure t
+    :defer t
+    :bind (
+        ("C-S-c C-S-c" . mc/edit-lines)
+        ("C->" . mc/mark-next-like-this)
+        ("C-<" . mc/mark-previous-like-this)
+    )
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; file, buffer, recent
@@ -81,8 +77,12 @@
 ;;;; system clipboard
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'simpleclip)
-(simpleclip-mode 1)
+(use-package simpleclip
+    :ensure t
+    :init
+    (simpleclip-mode)
+    :defer t
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; switch window

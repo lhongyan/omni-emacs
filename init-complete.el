@@ -3,7 +3,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; active company
-(global-company-mode 1)
+(use-package company
+    :ensure t
+    :defer t
+    :init (global-company-mode)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; which key

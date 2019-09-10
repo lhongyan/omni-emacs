@@ -3,12 +3,17 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; activate undo-tree, evil require undo-tree.el
-(require 'undo-tree)
-(undo-tree-mode 1)
+(use-package undo-tree
+    :defer t
+    :init (undo-tree-mode)
+)
 
 ;; Evil requires the goto-chg.el package which provides the functions goto-last-change and goto-last-change-reverse
-(require 'goto-chg)
+(use-package goto-chg 
+    :defer t    
+)
 
+;; evil
 (use-package evil
     :defer t
     :ensure t

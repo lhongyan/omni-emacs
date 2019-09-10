@@ -18,7 +18,7 @@
 (require 'init-org)
 
 ;; evil
-;;(require 'init-evil)
+(require 'init-evil)
 
 ;; python
 (require 'init-python)
