@@ -38,6 +38,17 @@
 ;; open org-indent mode
 (setq org-startup-indented t)
 
+;; set tag
+(setq org-tag-alist '(
+    ("HOLD" . ?h)
+    ("CANCEL" . ?c)
+    ("CALL" . ?l)
+    ("EMAIL" . ?e)
+    ("WAITING" . ?w)
+    ("AGENDA" . ?a)
+    ("METTING" . ?m)
+))
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-org)
