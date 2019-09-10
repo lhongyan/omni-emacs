@@ -2,9 +2,6 @@
 ;;;; Org Mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-(require 'org)
-
 ;; org key bindings
 (global-set-key "\C-c l" 'org-store-link)
 (global-set-key "\C-c a" 'org-agenda)
@@ -48,6 +45,9 @@
     ("AGENDA" . ?a)
     ("METTING" . ?m)
 ))
+
+(add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+(require 'org)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
