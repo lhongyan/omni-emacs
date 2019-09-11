@@ -57,7 +57,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package multiple-cursors
-    :ensure t
     :defer t
     :bind (
         ("C-S-c C-S-c" . mc/edit-lines)
@@ -78,7 +77,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package simpleclip
-    :ensure t
     :init
     (simpleclip-mode)
     :defer t
