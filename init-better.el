@@ -89,6 +89,9 @@
 
 (define-key global-map (kbd "C-x o") 'switch-window)
 
+(use-package markdown-mode
+  :ensure t)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-better)

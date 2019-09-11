@@ -29,6 +29,8 @@
 ;; xml
 (require 'init-xml)
 
+(require 'init-magit)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-emacs)

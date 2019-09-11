@@ -4,8 +4,13 @@
 
 ;; active company
 (use-package company
-    :defer t
-    :init (global-company-mode)
+  :ensure t
+  :diminish company-mode
+  :commands company-mode
+  :init
+  :defer t
+  :config
+  (global-company-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
