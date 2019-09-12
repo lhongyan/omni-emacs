@@ -25,9 +25,6 @@
 ;; open selection mode
 (delete-selection-mode 1)
 
-;; recent file
-(recentf-mode 1)
-
 ;; indent setting
 (setq default-tab-width 4)
 (setq default-indent-tabs-mode nil)
@@ -68,82 +65,33 @@
 ;; window position
 (set-frame-position (selected-frame) 500 200)
 
-;; time
-(display-time-mode 1)
-(setq display-time-24hr-format t)
-(setq display-time-day-and-date t)
-
 ;; high line
 (global-hl-line-mode 1)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; key bindings
+;;;; evil
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(define-key global-map (kbd "C-x C-r") 'recentf-open-files)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; enhance emacs
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; start the rainbow mode automatically
-(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-
-;; show startup time
-(add-hook 'emacs-startup-hook 
-(lambda () 
-    (message "Emacs ready in %s with %d garbage collections." 
-        (format "%.2f seconds" 
-            (float-time 
-                (time-subtract after-init-time before-init-time))) 
-    gcs-done)
-))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; better move
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package ace-jump-mode
-    :defer t
-    :bind
-    ("C-;" . ace-jump-mode)
-    ("M-g l" . ace-jump-line-mode)
-    ("M-g c" . ace-jump-char-mode)
-    ("M-g w" . ace-jump-word-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; multiple-cursors
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package multiple-cursors
-    :defer t
-    :bind (
-        ("C-S-c C-S-c" . mc/edit-lines)
-        ("C->" . mc/mark-next-like-this)
-        ("C-<" . mc/mark-previous-like-this)
-    )
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; system clipboard
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package simpleclip
-    :defer t
+(use-package evil
+    :ensure t
+    :init  
+    (evil-mode)
+    ;; remove all keybindings from insert-state keymap
+    (setcdr evil-insert-state-map nil) 
+    ;; remove all keybindings from insert-state keymap
+    (define-key evil-insert-state-map [escape] 'evil-normal-state)
+    ;; Use j/k to move one visual line insted of gj/gk
+    (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+    (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+    (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+    (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+    ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
+    (setq evil-toggle-key "")
     :config
-    (simpleclip-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; switch window
-;;;; use switch-window-mode quick switch window
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package switch-window
-    :defer t
-    :bind
-    ("C-x o" . switch-window)
+    (use-package evil-leader
+        :ensure t
+    )
+    (evil-mode 1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -152,12 +100,20 @@
 
 ;; active company
 (use-package company
-    :defer t
     :ensure t
+    :defer t
     :diminish company-mode
     :commands company-mode
+    :init
+    (setq company-dabbrev-ignore-case nil)
+    (setq company-dabbrev-code-ignore-case nil)
+    (setq company-dabbrev-downcase nil)
+    (setq company-idle-delay 0)
+    (setq company-minimum-prefix-length 3)
     :config
     (global-company-mode)
+    (define-key company-active-map [tab] nil)
+    (define-key company-active-map (kbd "TAB") nil)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -169,7 +125,7 @@
     (setq which-key-separator " -> " )
     (setq which-key-special-keys nil)
     :config
-    (which-key-mode)
+    (which-key-mode 1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -237,35 +193,86 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; evil
+;;;; multiple-cursors
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; activate undo-tree, evil require undo-tree.el
-(use-package undo-tree
-    :init (undo-tree-mode)
-)
-
-;; Evil requires the goto-chg.el package which provides the functions goto-last-change and goto-last-change-reverse
-(use-package goto-chg)
-
-;; evil
-(use-package evil
-    :init  
-    (evil-mode)
-    ;; remove all keybindings from insert-state keymap
-    (setcdr evil-insert-state-map nil) 
-    ;; remove all keybindings from insert-state keymap
-    (define-key evil-insert-state-map [escape] 'evil-normal-state)
-    ;; Use j/k to move one visual line insted of gj/gk
-    (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
-    (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-    (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
-    (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-    ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
-    (setq evil-toggle-key "")
+(use-package multiple-cursors
+    :defer t
+    :bind
+    ("C-S-c C-S-c" . mc/edit-lines)
+    ("C->" . mc/mark-next-like-this)
+    ("C-<" . mc/mark-previous-like-this)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; system clipboard
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package simpleclip
+    :defer t
+    :config
+    (simpleclip-mode)
+    :bind 
+    ("C-w" . simpleclip-cut)
+    ("C-y" . simpleclip-paste)
+    ("M-w" . simpleclip-copy)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; switch window
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package switch-window
+    :defer t
+    :bind
+    ("C-x o" . switch-window)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; ace-jump-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package ace-jump-mode
+    :defer t
+    :bind
+    ("C-;" . ace-jump-mode)
+    ("M-g l" . ace-jump-line-mode)
+    ("M-g c" . ace-jump-char-mode)
+    ("M-g w" . ace-jump-word-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; recent file
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package recentf-mode
+    :init
+    (recentf-mode 1) 
+    (setq recentf-max-menu-item 10)
+    :bind
+    ("C-x C-r" . recentf-open-files)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; rainbow-delimiters
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package rainbow-delimiters
+    :config
+    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; show startup time
+(add-hook 'emacs-startup-hook 
+(lambda () 
+    (message "Emacs ready in %s with %d garbage collections." 
+        (format "%.2f seconds" 
+            (float-time 
+                (time-subtract after-init-time before-init-time))) 
+    gcs-done)
+))
 
 (provide 'init)
