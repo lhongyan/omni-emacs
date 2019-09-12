@@ -43,7 +43,7 @@ charset
 ```lisp
 (package-initialize)
 (add-to-list 'load-path "D:\\awesome-emacs")
-(require 'init-emacs)
+(require 'init)
 ```
 
 - Enjoy Emacs
