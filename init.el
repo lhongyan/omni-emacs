@@ -124,8 +124,11 @@
     :init
     (setq which-key-separator " -> " )
     (setq which-key-special-keys nil)
+    (setq which-key-idle-delay 0.5)
+    (setq which-key-idle-secondary-delay 0.05)
     :config
     (which-key-mode 1)
+    (which-key-setup-minibuffer)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -261,6 +264,15 @@
     :config
     (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; popwin
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package popwin
+    :defer 1
+    :config
+    (popwin-mode +1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
