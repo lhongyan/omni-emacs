@@ -20,17 +20,6 @@
 ;; evil
 (require 'init-evil)
 
-;; python
-(require 'init-python)
-
-;; json
-(require 'init-json)
-
-;; xml
-(require 'init-xml)
-
-(require 'init-magit)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-emacs)
