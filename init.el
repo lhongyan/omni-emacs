@@ -16,63 +16,50 @@
 (require 'use-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; change default
+;;;; emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; no backup
-(setq make-backup-files nil)
-
-;; open selection mode
-(delete-selection-mode 1)
-
-;; indent setting
-(setq default-tab-width 4)
-(setq default-indent-tabs-mode nil)
-(electric-indent-mode nil)
-
-;; close auto save
-(setq auto-save-default nil)
-
-;; close bibi voice
-(setq ring-bell-function 'ignore)
-
-;; close bell
-(setq visible-bell nil)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; UI 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-;; close tool bar
-(tool-bar-mode -1)
-
-;; close scroll bar
-(scroll-bar-mode -1)
-
-;; close menu bar
-(menu-bar-mode -1)
-
-;; cursor style like "|"
-(setq-default cursor-type 'bar)
-
-;; close home page
-(setq inhibit-splash-screen t)
-
-;; window size
-(set-frame-width (selected-frame) 150)
-(set-frame-height (selected-frame) 50)
-
-;; window position
-(set-frame-position (selected-frame) 500 200)
-
-;; high line
-(global-hl-line-mode 1)
+(use-package emacs
+    :init
+    ;; no backup
+    (setq make-backup-files nil)
+    ;; close home page
+    (setq inhibit-splash-screen t)
+    ;; close auto save
+    (setq auto-save-default nil)
+    ;; close bibi voice
+    (setq ring-bell-function 'ignore)
+    ;; close bell
+    (setq visible-bell nil)
+    ;; indent setting
+    (setq default-tab-width 4)
+    (setq default-indent-tabs-mode nil)
+    :config
+    ;; cursor style like "|"
+    (setq-default cursor-type 'bar)
+    ;; window size and position
+    (set-frame-width (selected-frame) 150)
+    (set-frame-height (selected-frame) 50)
+    (set-frame-position (selected-frame) 500 200)
+    ;; close tool bar
+    (tool-bar-mode -1)
+    ;; close scroll bar
+    (scroll-bar-mode -1)
+    ;; close menu bar
+    (menu-bar-mode -1)
+    ;; high line
+    (global-hl-line-mode 1)
+    ;; open selection mode
+    (delete-selection-mode 1)
+    (electric-indent-mode nil)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; evil
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package evil
+    :defer t
     :ensure t
     :init  
     (evil-mode)
@@ -121,6 +108,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package which-key
+    :defer t
     :init
     (setq which-key-separator " -> " )
     (setq which-key-special-keys nil)
@@ -136,6 +124,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package helm
+    :defer t
     :init
     (setq helm-M-x-fuzzy-match t)
     (setq helm-buffers-fuzzy-matching t)
@@ -249,11 +238,13 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package recentf-mode
-    :init
-    (recentf-mode 1) 
+    :defer t
+    :init 
     (setq recentf-max-menu-item 10)
     :bind
     ("C-x C-r" . recentf-open-files)
+    :config
+    (recentf-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -261,6 +252,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package rainbow-delimiters
+    :defer t
     :config
     (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 )
@@ -270,7 +262,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package popwin
-    :defer 1
+    :defer t
     :config
     (popwin-mode +1))
 
