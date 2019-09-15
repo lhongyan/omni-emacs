@@ -68,8 +68,6 @@
     (setq-default cursor-type 'bar)
     ;; close tool bar
     (tool-bar-mode -1)
-    ;; close scroll bar
-    (scroll-bar-mode nil)
     ;; close menu bar
     (menu-bar-mode -1)
     ;; high line
