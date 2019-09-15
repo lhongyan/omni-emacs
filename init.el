@@ -37,10 +37,6 @@
     :config
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
-    ;; window size and position
-    (set-frame-width (selected-frame) 150)
-    (set-frame-height (selected-frame) 50)
-    (set-frame-position (selected-frame) 500 200)
     ;; close tool bar
     (tool-bar-mode -1)
     ;; close scroll bar
@@ -52,6 +48,10 @@
     ;; open selection mode
     (delete-selection-mode 1)
     (electric-indent-mode nil)
+    ;; window size and position
+    (set-frame-width (selected-frame) 150)
+    (set-frame-height (selected-frame) 50)
+    (set-frame-position (selected-frame) 500 200)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -108,7 +108,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package which-key
-    :defer t
     :init
     (setq which-key-separator " -> " )
     (setq which-key-special-keys nil)
