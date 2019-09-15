@@ -75,6 +75,7 @@
     ;; open selection mode
     (delete-selection-mode 1)
     (electric-indent-mode nil)
+    (scroll-bar-mode -1)
     ;; window size and position
     (set-frame-width (selected-frame) 150)
     (set-frame-height (selected-frame) 50)
