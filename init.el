@@ -22,7 +22,6 @@
         simpleclip
         switch-window
         color-theme-sanityinc-tomorrow
-        undo-tree
         evil
     ) "Default packages")
 
