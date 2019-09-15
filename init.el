@@ -120,9 +120,6 @@
 ;; active company
 (use-package company
     :ensure t
-    :defer t
-    :diminish company-mode
-    :commands company-mode
     :init
     (setq company-dabbrev-ignore-case nil)
     (setq company-dabbrev-code-ignore-case nil)
