@@ -1,4 +1,44 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; package manager
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(when (>= emacs-major-version 24)
+    (require 'package)
+    (package-initialize)
+    (setq package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/"))))
+
+(require 'cl)
+
+;; Packages
+(defvar my/packages '(
+        use-package
+        company
+        which-key
+        helm
+        magit
+        ace-jump-mode
+        rainbow-delimiters
+        multiple-cursors
+        simpleclip
+        switch-window
+        color-theme-sanityinc-tomorrow
+    ) "Default packages")
+
+(setq package-selected-packages my/packages)
+
+(defun my/packages-installed-p ()
+    (loop for pkg in my/packages
+	    when (not (package-installed-p pkg)) do (return nil)
+	    finally (return t)))
+
+(unless (my/packages-installed-p)
+    (message "%s" "Refreshing package database...")
+    (package-refresh-contents)
+    (dolist (pkg my/packages)
+        (when (not (package-installed-p pkg))
+	(package-install pkg))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; use-package
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -34,6 +74,7 @@
     ;; indent setting
     (setq default-tab-width 4)
     (setq default-indent-tabs-mode nil)
+    (setq recentf-max-menu-item 10)
     :config
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
@@ -52,6 +93,9 @@
     (set-frame-width (selected-frame) 150)
     (set-frame-height (selected-frame) 50)
     (set-frame-position (selected-frame) 500 200)
+    (recentf-mode t)
+    :bind
+    ("C-x C-r" . recentf-open-files)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -59,8 +103,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package evil
-    :defer t
     :ensure t
+    :defer t
     :init  
     (evil-mode)
     ;; remove all keybindings from insert-state keymap
@@ -124,6 +168,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package helm
+    :ensure t
     :defer t
     :init
     (setq helm-M-x-fuzzy-match t)
@@ -231,20 +276,6 @@
     ("M-g l" . ace-jump-line-mode)
     ("M-g c" . ace-jump-char-mode)
     ("M-g w" . ace-jump-word-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; recent file
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package recentf-mode
-    :defer t
-    :init 
-    (setq recentf-max-menu-item 10)
-    :bind
-    ("C-x C-r" . recentf-open-files)
-    :config
-    (recentf-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
