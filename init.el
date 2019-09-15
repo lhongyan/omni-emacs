@@ -22,6 +22,8 @@
         simpleclip
         switch-window
         color-theme-sanityinc-tomorrow
+        evil
+        undo-tree
     ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -37,23 +39,6 @@
     (dolist (pkg my/packages)
         (when (not (package-installed-p pkg))
 	(package-install pkg))))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; use-package
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(require 'package)
-(setq
-    package-archives '(("melpa" . "http://elpa.emacs-china.org/melpa/"))
-    package-archive-priorities '(("melpa" . 1)))
-
-(package-initialize)
-
-(when (not package-archive-contents)
-    (package-refresh-contents)
-    (package-install 'use-package))
-
-(require 'use-package)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; emacs
@@ -81,7 +66,7 @@
     ;; close tool bar
     (tool-bar-mode -1)
     ;; close scroll bar
-    (scroll-bar-mode -1)
+    (scroll-bar-mode nil)
     ;; close menu bar
     (menu-bar-mode -1)
     ;; high line
