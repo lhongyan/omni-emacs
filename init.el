@@ -79,6 +79,7 @@
     (set-frame-height (selected-frame) 50)
     (set-frame-position (selected-frame) 500 200)
     (recentf-mode t)
+    (global-undo-tree-mode)
     :bind
     ("C-x C-r" . recentf-open-files)
 )
@@ -104,6 +105,9 @@
     ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
     (setq evil-toggle-key "")
     :config
+    (use-package evil-leader
+        :ensure t
+    )
     (evil-mode 1)
 )
 
