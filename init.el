@@ -108,6 +108,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package which-key
+    :ensure t
     :init
     (setq which-key-separator " -> " )
     (setq which-key-special-keys nil)
