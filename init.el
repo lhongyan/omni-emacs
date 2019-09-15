@@ -22,8 +22,8 @@
         simpleclip
         switch-window
         color-theme-sanityinc-tomorrow
-        evil
         undo-tree
+        evil
     ) "Default packages")
 
 (setq package-selected-packages my/packages)
