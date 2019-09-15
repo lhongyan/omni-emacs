@@ -104,9 +104,6 @@
     ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
     (setq evil-toggle-key "")
     :config
-    (use-package evil-leader
-        :ensure t
-    )
     (evil-mode 1)
 )
 
