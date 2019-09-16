@@ -62,8 +62,7 @@
     ;; indent setting
     (setq default-tab-width 4)
     (setq default-indent-tabs-mode nil)
-    (setq recentf-max-menu-item 10)
-    :config
+    (electric-indent-mode nil)
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
     ;; close tool bar
@@ -72,18 +71,25 @@
     (menu-bar-mode -1)
     ;; high line
     (global-hl-line-mode 1)
-    ;; open selection mode
+    ;; open selection delete mode
     (delete-selection-mode 1)
-    (electric-indent-mode nil)
-    (scroll-bar-mode -1)
     ;; window size and position
     (set-frame-width (selected-frame) 150)
     (set-frame-height (selected-frame) 50)
     (set-frame-position (selected-frame) 500 200)
+    ;; recent file
     (recentf-mode t)
+    (setq recentf-max-menu-item 10)
     (global-undo-tree-mode)
+    ;; theme
+    (load-theme 'sanityinc-tomorrow-eighties t)
     :bind
     ("C-x C-r" . recentf-open-files)
+)
+
+;; close scroll bar
+(when (display-graphic-p)
+    (scroll-bar-mode -1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -107,9 +113,6 @@
     ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
     (setq evil-toggle-key "")
     :config
-    (use-package evil-leader
-        :ensure t
-    )
     (evil-mode 1)
 )
 
@@ -205,6 +208,8 @@
         ("AGENDA" . ?a)
         ("METTING" . ?m)
     ))
+    (setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
+    (org-bullets-mode)
     (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
     :bind
     ("\C-c l" . org-store-link)
