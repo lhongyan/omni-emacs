@@ -209,7 +209,6 @@
         ("METTING" . ?m)
     ))
     (setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
-    (org-bullets-mode)
     (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
     :bind
     ("\C-c l" . org-store-link)
