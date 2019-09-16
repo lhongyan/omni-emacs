@@ -207,6 +207,7 @@
     ))
     (setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
     (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
+    (add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
     :bind
     ("\C-c l" . org-store-link)
     ("\C-c a" . org-agenda)
