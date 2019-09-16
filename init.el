@@ -27,7 +27,7 @@
         switch-window
         color-theme-sanityinc-tomorrow
         evil
-    ) "Default packages")
+) "Default packages")
 
 (setq package-selected-packages my/packages)
 
