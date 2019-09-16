@@ -208,12 +208,27 @@
     (setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
     (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
+    (setq org-agenda-files 
+        (list 
+            "./agenda/agenda.org"
+            "./agenda/anywhere.org"
+            "./agenda/all-mail.org"
+            "./agenda/company.org"
+            "./agenda/computer.org"
+            "./agenda/errands.org"
+            "./agenda/home.org"
+            "./agenda/maybe.org"
+            "./agenda/shopping.org"
+            "./agenda/waiting-for.org"
+        )
+    )
     :bind
     ("\C-c l" . org-store-link)
     ("\C-c a" . org-agenda)
     ("\C-c b" . org-iswitchb)
     :config
     (org-mode)
+    (auto-image-file-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
