@@ -85,11 +85,8 @@
     (load-theme 'sanityinc-tomorrow-eighties t)
     :bind
     ("C-x C-r" . recentf-open-files)
-)
-
-;; close scroll bar
-(when (display-graphic-p)
-    (scroll-bar-mode -1)
+    :if (display-graphic-p)
+    :init (scroll-bar-mode -1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
