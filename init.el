@@ -24,9 +24,8 @@
         rainbow-delimiters
         multiple-cursors
         simpleclip
-        switch-window
-        color-theme-sanityinc-tomorrow
         evil
+        spacemacs-theme
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -69,8 +68,6 @@
     (tool-bar-mode -1)
     ;; close menu bar
     (menu-bar-mode -1)
-    ;; high line
-    (global-hl-line-mode 1)
     ;; open selection delete mode
     (delete-selection-mode 1)
     ;; window size and position
@@ -82,7 +79,7 @@
     (setq recentf-max-menu-item 10)
     (global-undo-tree-mode)
     ;; theme
-    (load-theme 'sanityinc-tomorrow-eighties t)
+    (load-theme 'spacemacs-dark t)
     :bind
     ("C-x C-r" . recentf-open-files)
     :if (display-graphic-p)
@@ -205,7 +202,7 @@
         ("AGENDA" . ?a)
         ("METTING" . ?m)
     ))
-    (setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
+    ;;(setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
     (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
     (setq org-agenda-files 
