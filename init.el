@@ -71,9 +71,9 @@
     ;; open selection delete mode
     (delete-selection-mode 1)
     ;; window size and position
-    (set-frame-width (selected-frame) 150)
-    (set-frame-height (selected-frame) 50)
-    (set-frame-position (selected-frame) 500 200)
+    ;;(set-frame-width (selected-frame) 150)
+    ;;(set-frame-height (selected-frame) 50)
+    ;;(set-frame-position (selected-frame) 500 200)
     ;; recent file
     (recentf-mode t)
     (setq recentf-max-menu-item 10)
