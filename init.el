@@ -48,6 +48,8 @@
 
 (use-package emacs
     :init
+    ;; frame title
+    (setq frame-title-format '("Emacs " time-stamp ))
     ;; no backup
     (setq make-backup-files nil)
     ;; close home page
@@ -76,6 +78,11 @@
     (global-undo-tree-mode)
     ;; theme
     (load-theme 'spacemacs-dark t)
+    :config
+    ;; read encode
+    (prefer-coding-system 'utf-8)
+    ;;write encode
+    (setq default-buffer-file-coding-system 'utf-8)
     :bind
     ("C-x C-r" . recentf-open-files)
     :if (display-graphic-p)
