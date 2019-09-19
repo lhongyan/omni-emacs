@@ -49,7 +49,7 @@
 (use-package emacs
     :init
     ;; frame title
-    (setq frame-title-format '("Emacs " time-stamp ))
+    (setq frame-title-format '("" "Emacs " emacs-version))
     ;; no backup
     (setq make-backup-files nil)
     ;; close home page
@@ -87,6 +87,20 @@
     ("C-x C-r" . recentf-open-files)
     :if (display-graphic-p)
     :init (scroll-bar-mode -1)
+)
+
+(setq-default mode-line-format
+    (list
+        "%z"
+        ;; value of current buffer name
+        "%* %b %*"
+        ;; value of current line number
+        "(%l"
+        ","
+        "%c)"
+
+        
+    )
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -300,9 +314,8 @@
     (popwin-mode +1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; python
+;;;; modeline
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
