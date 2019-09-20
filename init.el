@@ -84,6 +84,22 @@
     :init (scroll-bar-mode -1)
 )
 
+(use-package emacs
+    :config
+    (use-package switch-window
+        :bind
+        ("C-x o" . switch-window)
+    )
+    (use-package simpleclip
+        :config
+        (simpleclip-mode)
+        :bind 
+        ("C-w" . simpleclip-cut)
+        ("C-y" . simpleclip-paste)
+        ("M-w" . simpleclip-copy)
+    )
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; company
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -200,30 +216,6 @@
     :config
     (org-mode)
     (auto-image-file-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; system clipboard
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package simpleclip
-    :defer t
-    :config
-    (simpleclip-mode)
-    :bind 
-    ("C-w" . simpleclip-cut)
-    ("C-y" . simpleclip-paste)
-    ("M-w" . simpleclip-copy)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; switch window
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package switch-window
-    :defer t
-    :bind
-    ("C-x o" . switch-window)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
