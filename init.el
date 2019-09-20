@@ -19,10 +19,6 @@
         company
         which-key
         helm
-        magit
-        ace-jump-mode
-        rainbow-delimiters
-        multiple-cursors
         simpleclip
         evil
         spacemacs-theme
@@ -232,18 +228,6 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; multiple-cursors
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package multiple-cursors
-    :defer t
-    :bind
-    ("C-S-c C-S-c" . mc/edit-lines)
-    ("C->" . mc/mark-next-like-this)
-    ("C-<" . mc/mark-previous-like-this)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; system clipboard
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -266,38 +250,6 @@
     :bind
     ("C-x o" . switch-window)
 )
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; ace-jump-mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package ace-jump-mode
-    :defer t
-    :bind
-    ("C-;" . ace-jump-mode)
-    ("M-g l" . ace-jump-line-mode)
-    ("M-g c" . ace-jump-char-mode)
-    ("M-g w" . ace-jump-word-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; rainbow-delimiters
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package rainbow-delimiters
-    :defer t
-    :config
-    (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; popwin
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package popwin
-    :defer t
-    :config
-    (popwin-mode +1))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

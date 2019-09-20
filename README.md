@@ -46,4 +46,4 @@ charset
 (require 'init)
 ```
 
-- Enjoy Emacs
+- Enjoy write and read
