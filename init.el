@@ -77,7 +77,7 @@
     (setq recentf-max-menu-item 10)
     (global-undo-tree-mode)
     ;; theme
-    (load-theme 'spacemacs-light t)
+    (load-theme 'spacemacs-dark t)
     :config
     ;; read encode
     (prefer-coding-system 'utf-8)
@@ -298,12 +298,6 @@
     :defer t
     :config
     (popwin-mode +1))
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; python
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-()
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
