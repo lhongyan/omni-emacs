@@ -19,8 +19,10 @@
         company
         which-key
         helm
+        evil
         simpleclip
         spacemacs-theme
+        spaceline
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -43,6 +45,20 @@
 
 (use-package emacs
     :init
+    (electric-indent-mode nil)
+    ;; cursor style like "|"
+    (setq-default cursor-type 'bar)
+    ;; close tool bar
+    (tool-bar-mode -1)
+    ;; close menu bar
+    (menu-bar-mode -1)
+    ;; open selection delete mode
+    (delete-selection-mode 1)
+    ;; recent file
+    (recentf-mode t)
+    (global-undo-tree-mode)
+    ;; theme
+    (load-theme 'spacemacs-dark t)
     ;; frame title
     (setq frame-title-format '("" "Emacs " emacs-version))
     ;; no backup
@@ -58,34 +74,12 @@
     ;; indent setting
     (setq default-tab-width 4)
     (setq default-indent-tabs-mode nil)
-    (electric-indent-mode nil)
-    ;; cursor style like "|"
-    (setq-default cursor-type 'bar)
-    ;; close tool bar
-    (tool-bar-mode -1)
-    ;; close menu bar
-    (menu-bar-mode -1)
-    ;; open selection delete mode
-    (delete-selection-mode 1)
-    ;; recent file
-    (recentf-mode t)
     (setq recentf-max-menu-item 10)
-    (global-undo-tree-mode)
-    ;; theme
-    (load-theme 'spacemacs-dark t)
     :config
     ;; read encode
     (prefer-coding-system 'utf-8)
     ;;write encode
     (setq default-buffer-file-coding-system 'utf-8)
-    :bind
-    ("C-x C-r" . recentf-open-files)
-    :if (display-graphic-p)
-    :init (scroll-bar-mode -1)
-)
-
-(use-package emacs
-    :config
     (use-package switch-window
         :bind
         ("C-x o" . switch-window)
@@ -98,6 +92,18 @@
         ("C-y" . simpleclip-paste)
         ("M-w" . simpleclip-copy)
     )
+    (use-package spaceline
+        :config
+        (require 'spaceline-config)
+        (spaceline-spacemacs-theme)
+        ;;(spaceline-toggle-minor-modes-off)
+        ;;(spaceline-toggle-major-mode-off)
+        (spaceline-helm-mode)
+    )
+    :bind
+    ("C-x C-r" . recentf-open-files)
+    :if (display-graphic-p)
+    :init (scroll-bar-mode -1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -153,6 +159,30 @@
     ("C-x b" . helm-buffers-list)
     :config
     (helm-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; evil
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package evil
+    :ensure t
+    :defer t
+    :init  
+    (evil-mode)
+    ;; remove all keybindings from insert-state keymap
+    (setcdr evil-insert-state-map nil) 
+    ;; remove all keybindings from insert-state keymap
+    (define-key evil-insert-state-map [escape] 'evil-normal-state)
+    ;; Use j/k to move one visual line insted of gj/gk
+    (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+    (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+    (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
+    (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
+    ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
+    (setq evil-toggle-key "")
+    :config
+    (evil-mode 1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
