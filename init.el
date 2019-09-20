@@ -77,7 +77,7 @@
     (setq recentf-max-menu-item 10)
     (global-undo-tree-mode)
     ;; theme
-    (load-theme 'spacemacs-dark t)
+    (load-theme 'spacemacs-light t)
     :config
     ;; read encode
     (prefer-coding-system 'utf-8)
