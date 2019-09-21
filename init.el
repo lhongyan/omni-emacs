@@ -73,6 +73,7 @@
     ;; indent setting
     (setq default-tab-width 4)
     (setq default-indent-tabs-mode nil)
+    ;; recent file
     (setq recentf-max-menu-item 10)
     :config
     ;; read encode
