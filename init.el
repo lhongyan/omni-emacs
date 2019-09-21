@@ -22,7 +22,6 @@
         evil
         simpleclip
         spacemacs-theme
-        spaceline
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -91,14 +90,6 @@
         ("C-w" . simpleclip-cut)
         ("C-y" . simpleclip-paste)
         ("M-w" . simpleclip-copy)
-    )
-    (use-package spaceline
-        :config
-        (require 'spaceline-config)
-        (spaceline-spacemacs-theme)
-        ;;(spaceline-toggle-minor-modes-off)
-        ;;(spaceline-toggle-major-mode-off)
-        (spaceline-helm-mode)
     )
     :bind
     ("C-x C-r" . recentf-open-files)
