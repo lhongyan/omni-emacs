@@ -22,6 +22,7 @@
         evil
         simpleclip
         spacemacs-theme
+        yasnippet
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -44,7 +45,6 @@
 
 (use-package emacs
     :init
-    (electric-indent-mode nil)
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
     ;; close tool bar
@@ -53,8 +53,6 @@
     (menu-bar-mode -1)
     ;; open selection delete mode
     (delete-selection-mode 1)
-    ;; recent file
-    (recentf-mode t)
     (global-undo-tree-mode)
     ;; theme
     (load-theme 'spacemacs-dark t)
@@ -73,8 +71,6 @@
     ;; indent setting
     (setq default-tab-width 4)
     (setq default-indent-tabs-mode nil)
-    ;; recent file
-    (setq recentf-max-menu-item 10)
     :config
     ;; read encode
     (prefer-coding-system 'utf-8)
@@ -91,6 +87,14 @@
         ("C-w" . simpleclip-cut)
         ("C-y" . simpleclip-paste)
         ("M-w" . simpleclip-copy)
+    )
+    (use-package recentf
+        :init
+        ;; recent file
+        (setq recentf-max-menu-item 10)
+        :config
+        ;; recent file
+        (recentf-mode t)
     )
     :bind
     ("C-x C-r" . recentf-open-files)
@@ -146,7 +150,7 @@
     (setq helm-recentf-fuzzy-match t)
     (require 'helm-config)
     :bind 
-    ("M-x" . helm-M-x)
+    ;;("M-x" . helm-M-x)
     ("C-x C-b" . helm-buffers-list)
     ("C-x b" . helm-buffers-list)
     :config
@@ -258,6 +262,15 @@
     :config
     (org-mode)
     (auto-image-file-mode)
+)
+
+(use-package yasnippet
+    :init
+    (setq yas-snippet-dirs '("D:/学习项目/awesome-emacs/snippets"))
+    :config
+    (yas-global-mode 1)
+    (yas-reload-all)
+    (add-hook 'prog-mode-hook #'yas-minor-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
