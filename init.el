@@ -53,7 +53,6 @@
     (menu-bar-mode -1)
     ;; open selection delete mode
     (delete-selection-mode 1)
-    (global-undo-tree-mode)
     ;; theme
     (load-theme 'spacemacs-dark t)
     ;; frame title
@@ -79,6 +78,10 @@
     (use-package switch-window
         :bind
         ("C-x o" . switch-window)
+    )
+    (use-package undo-tree
+        :config
+        (global-undo-tree-mode)
     )
     (use-package simpleclip
         :config
