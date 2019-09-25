@@ -18,11 +18,11 @@
         use-package
         company
         which-key
-        helm
-        evil
         simpleclip
         spacemacs-theme
         yasnippet
+        expand-region
+        ace-jump-mode
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -79,10 +79,6 @@
         :bind
         ("C-x o" . switch-window)
     )
-    (use-package undo-tree
-        :config
-        (global-undo-tree-mode)
-    )
     (use-package simpleclip
         :config
         (simpleclip-mode)
@@ -103,6 +99,32 @@
     ("C-x C-r" . recentf-open-files)
     :if (display-graphic-p)
     :init (scroll-bar-mode -1)
+)
+
+
+(use-package emacs
+    :init
+    (defun c_r_o_w_l()
+        (interactive)
+        (if mark-active (simpleclip-copy (region-beginning) (region-end))
+            (progn
+                (simpleclip-copy (line-beginning-position) (line-end-position))
+                (message "copied line")
+            )
+        )
+    )
+    (defun k_r_o_w_l()
+        (interactive)
+        (if mark-active (simpleclip-cut (region-beginning) (region-end))
+            (progn
+                (simpleclip-cut (line-beginning-position) (line-end-position))
+                (message "killed line")
+            )
+        )
+    )
+    :bind
+    ("M-w" . c_r_o_w_l)
+    ("C-w" . k_r_o_w_l)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -140,49 +162,7 @@
     (which-key-setup-minibuffer)
 )
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; helm
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package helm
-    :ensure t
-    :defer t
-    :init
-    (setq helm-M-x-fuzzy-match t)
-    (setq helm-buffers-fuzzy-matching t)
-    (setq helm-recentf-fuzzy-match t)
-    (require 'helm-config)
-    :bind 
-    ;;("M-x" . helm-M-x)
-    ("C-x C-b" . helm-buffers-list)
-    ("C-x b" . helm-buffers-list)
-    :config
-    (helm-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; evil
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package evil
-    :ensure t
-    :defer t
-    :init  
-    (evil-mode)
-    ;; remove all keybindings from insert-state keymap
-    (setcdr evil-insert-state-map nil) 
-    ;; remove all keybindings from insert-state keymap
-    (define-key evil-insert-state-map [escape] 'evil-normal-state)
-    ;; Use j/k to move one visual line insted of gj/gk
-    (define-key evil-normal-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
-    (define-key evil-normal-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-    (define-key evil-motion-state-map (kbd "<remap> <evil-next-line>") 'evil-next-visual-line)
-    (define-key evil-motion-state-map (kbd "<remap> <evil-previous-line>") 'evil-previous-visual-line)
-    ;; remove default evil-toggle-key C-zã€‚ defaultï¼ŒEmacs use C-z hang up itself
-    (setq evil-toggle-key "")
-    :config
-    (evil-mode 1)
-)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Org Mode
@@ -267,6 +247,10 @@
     (auto-image-file-mode)
 )
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; yasnippet
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 (use-package yasnippet
     :init
     (setq yas-snippet-dirs '("D:/学习项目/awesome-emacs/snippets"))
@@ -274,6 +258,34 @@
     (yas-global-mode 1)
     (yas-reload-all)
     (add-hook 'prog-mode-hook #'yas-minor-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; expand region
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package expand-region
+    :bind
+    ("C-= =" . er/expand-region)
+    ("C-= w" . er/mark-word)
+    ("C-= s" . er/mark-symbol)
+    ("C-= i q" . er/mark-inside-quotes)
+    ("C-= o q" . er/mark-outside-quotes)
+    ("C-= i p" . er/mark-inside-pairs)
+    ("C-= o p" . er/mark-outside-pairs)
+    ("C-= c" . er/mark-comment)
+    ("C-= u" . er/mark-url)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; ace jump
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package ace-jump-mode
+    :bind
+    ("C-' w" . ace-jump-word-mode)
+    ("C-' c" . ace-jump-char-mode)
+    ("C-' l" . ace-jump-line-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
