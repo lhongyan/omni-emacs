@@ -51,6 +51,8 @@
     (tool-bar-mode -1)
     ;; close menu bar
     (menu-bar-mode -1)
+    ;; close eldoc
+    (global-eldoc-mode -1)
     ;; open selection delete mode
     (delete-selection-mode 1)
     ;; theme
@@ -67,40 +69,21 @@
     (setq ring-bell-function 'ignore)
     ;; close bell
     (setq visible-bell nil)
-    ;; indent setting
+    ;; tab size
     (setq default-tab-width 4)
+    ;; indent
     (setq default-indent-tabs-mode nil)
     :config
     ;; read encode
     (prefer-coding-system 'utf-8)
     ;;write encode
     (setq default-buffer-file-coding-system 'utf-8)
-    (use-package switch-window
-        :bind
-        ("C-x o" . switch-window)
-    )
-    (use-package simpleclip
-        :config
-        (simpleclip-mode)
-        :bind 
-        ("C-w" . simpleclip-cut)
-        ("C-y" . simpleclip-paste)
-        ("M-w" . simpleclip-copy)
-    )
-    (use-package recentf
-        :init
-        ;; recent file
-        (setq recentf-max-menu-item 10)
-        :config
-        ;; recent file
-        (recentf-mode t)
-    )
-    :bind
-    ("C-x C-r" . recentf-open-files)
+)
+
+(use-package emacs
     :if (display-graphic-p)
     :init (scroll-bar-mode -1)
 )
-
 
 (use-package emacs
     :init
@@ -292,14 +275,38 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; eldoc
+;;;; simpleclip
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(global-eldoc-mode -1)
-(use-package eldoc-mode
-    :defer t
+(use-package simpleclip
     :config
-    (global-eldoc-mode -1)
+    (simpleclip-mode)
+    :bind 
+    ("C-w" . simpleclip-cut)
+    ("C-y" . simpleclip-paste)
+    ("M-w" . simpleclip-copy)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; recentf
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package recentf
+    :init
+    (setq recentf-max-menu-item 10)
+    :config
+    (recentf-mode t)
+    :bind
+    ("C-x C-r" . recentf-open-files)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; switch-window
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package switch-window
+    :bind
+    ("C-x o" . switch-window)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
