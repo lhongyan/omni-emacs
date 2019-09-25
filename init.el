@@ -44,6 +44,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package emacs
+    :defer t
     :init
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
@@ -81,11 +82,13 @@
 )
 
 (use-package emacs
+    :defer t
     :if (display-graphic-p)
     :init (scroll-bar-mode -1)
 )
 
 (use-package emacs
+    :defer t
     :init
     (defun c_r_o_w_l()
         (interactive)
