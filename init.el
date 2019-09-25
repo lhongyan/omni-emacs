@@ -133,6 +133,7 @@
 
 ;; active company
 (use-package company
+    :defer t
     :ensure t
     :init
     (setq company-dabbrev-ignore-case nil)
@@ -151,6 +152,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package which-key
+    :defer t
     :ensure t
     :init
     (setq which-key-separator " -> " )
@@ -161,8 +163,6 @@
     (which-key-mode 1)
     (which-key-setup-minibuffer)
 )
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Org Mode
@@ -252,6 +252,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package yasnippet
+    :defer t
     :init
     (setq yas-snippet-dirs '("D:/学习项目/awesome-emacs/snippets"))
     :config
@@ -265,6 +266,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package expand-region
+    :defer t
     :bind
     ("C-= =" . er/expand-region)
     ("C-= w" . er/mark-word)
@@ -282,10 +284,22 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ace-jump-mode
+    :defer t
     :bind
     ("C-' w" . ace-jump-word-mode)
     ("C-' c" . ace-jump-char-mode)
     ("C-' l" . ace-jump-line-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; eldoc
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-eldoc-mode -1)
+(use-package eldoc-mode
+    :defer t
+    :config
+    (global-eldoc-mode -1)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
