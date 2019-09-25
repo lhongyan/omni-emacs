@@ -16,13 +16,13 @@
 ;; Packages
 (defvar my/packages '(
         use-package
-        company
+        expand-region
+        ace-jump-mode
         which-key
         simpleclip
         spacemacs-theme
+        company
         yasnippet
-        expand-region
-        ace-jump-mode
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -46,8 +46,6 @@
 (use-package emacs
     :defer t
     :init
-    ;; cursor style like "|"
-    (setq-default cursor-type 'bar)
     ;; close tool bar
     (tool-bar-mode -1)
     ;; close menu bar
@@ -74,11 +72,12 @@
     (setq default-tab-width 4)
     ;; indent
     (setq default-indent-tabs-mode nil)
-    :config
     ;; read encode
-    (prefer-coding-system 'utf-8)
+    (setq prefer-coding-system 'utf-8)
     ;;write encode
     (setq default-buffer-file-coding-system 'utf-8)
+    ;; cursor style like "|"
+    (setq cursor-type 'bar)
 )
 
 (use-package emacs
@@ -114,6 +113,85 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; expand region
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package expand-region
+    :bind
+    ("C-= =" . er/expand-region)
+    ("C-= w" . er/mark-word)
+    ("C-= s" . er/mark-symbol)
+    ("C-= i q" . er/mark-inside-quotes)
+    ("C-= o q" . er/mark-outside-quotes)
+    ("C-= i p" . er/mark-inside-pairs)
+    ("C-= o p" . er/mark-outside-pairs)
+    ("C-= c" . er/mark-comment)
+    ("C-= u" . er/mark-url)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; ace jump
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package ace-jump-mode
+    :bind
+    ("C-' w" . ace-jump-word-mode)
+    ("C-' c" . ace-jump-char-mode)
+    ("C-' l" . ace-jump-line-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; simpleclip
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package simpleclip
+    :config
+    (simpleclip-mode)
+    :bind 
+    ("C-w" . simpleclip-cut)
+    ("C-y" . simpleclip-paste)
+    ("M-w" . simpleclip-copy)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; recentf
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package recentf
+    :init
+    (setq recentf-max-menu-item 10)
+    :config
+    (recentf-mode t)
+    :bind
+    ("C-x C-r" . recentf-open-files)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; switch-window
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package switch-window
+    :bind
+    ("C-x o" . switch-window)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; which key
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package which-key
+    :ensure t
+    :init
+    (setq which-key-separator " -> " )
+    (setq which-key-special-keys nil)
+    (setq which-key-idle-delay 0.5)
+    (setq which-key-idle-secondary-delay 0.05)
+    :config
+    (which-key-mode 1)
+    (which-key-setup-minibuffer)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; company
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -133,20 +211,17 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; which key
+;;;; yasnippet
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package which-key
+(use-package yasnippet
     :defer t
-    :ensure t
     :init
-    (setq which-key-separator " -> " )
-    (setq which-key-special-keys nil)
-    (setq which-key-idle-delay 0.5)
-    (setq which-key-idle-secondary-delay 0.05)
+    (setq yas-snippet-dirs '("D:/学习项目/awesome-emacs/snippets"))
     :config
-    (which-key-mode 1)
-    (which-key-setup-minibuffer)
+    (yas-global-mode 1)
+    (yas-reload-all)
+    (add-hook 'prog-mode-hook #'yas-minor-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -164,88 +239,6 @@
     ("C-c b" . org-iswitchb)
     :config
     (org-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; yasnippet
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package yasnippet
-    :defer t
-    :init
-    (setq yas-snippet-dirs '("D:/学习项目/awesome-emacs/snippets"))
-    :config
-    (yas-global-mode 1)
-    (yas-reload-all)
-    (add-hook 'prog-mode-hook #'yas-minor-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; expand region
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package expand-region
-    :defer t
-    :bind
-    ("C-= =" . er/expand-region)
-    ("C-= w" . er/mark-word)
-    ("C-= s" . er/mark-symbol)
-    ("C-= i q" . er/mark-inside-quotes)
-    ("C-= o q" . er/mark-outside-quotes)
-    ("C-= i p" . er/mark-inside-pairs)
-    ("C-= o p" . er/mark-outside-pairs)
-    ("C-= c" . er/mark-comment)
-    ("C-= u" . er/mark-url)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; ace jump
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package ace-jump-mode
-    :defer t
-    :bind
-    ("C-' w" . ace-jump-word-mode)
-    ("C-' c" . ace-jump-char-mode)
-    ("C-' l" . ace-jump-line-mode)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; simpleclip
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package simpleclip
-    :defer t
-    :config
-    (simpleclip-mode)
-    :bind 
-    ("C-w" . simpleclip-cut)
-    ("C-y" . simpleclip-paste)
-    ("M-w" . simpleclip-copy)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; recentf
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package recentf
-    :defer t
-    :init
-    (setq recentf-max-menu-item 10)
-    :config
-    (recentf-mode t)
-    :bind
-    ("C-x C-r" . recentf-open-files)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; switch-window
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package switch-window
-    :defer t
-    :bind
-    ("C-x o" . switch-window)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
