@@ -114,7 +114,6 @@
 ;;;; company
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; active company
 (use-package company
     :defer t
     :ensure t
@@ -155,79 +154,13 @@
     :defer t
     :init
     (setq org-startup-indented t)
-    (setq org-todo-keywords
-        (quote (
-                (sequence "TODO(t)" "DONE(d)" "HOLD(h)" "CANCELLED(c)")
-                (sequence "CALL/MAIL(p)" "WAITING(w)" "AGENDA(a)" "MEETING(m)")
-                (sequence "BUG(b)" "FIX(f)")
-            )
-        )
-    )
-    (setq org-todo-keyword-faces
-        (quote (("TODO" . (:foreground "white"  :weight bold))
-            ("DONE" . (:foreground "forest green" :weight bold))
-            ("HOLD" . (:foreground "magenta" :weight bold))
-            ("CANCELLED" . (:foreground "red" :weight bold))
-            ("CALL" . (:foreground "blue" :weight bold))
-            ("WAITING" . (:foreground "orange" :weight bold))
-            ("AGENDA" . (:foreground "orange" :weight bold))
-            ("MEETING" . (:foreground "yello" :weight bold))
-            ("MAIL" . (:foreground "purple" :weight bold))))
-    )
-    (setq org-startup-indented t)
-    (setq org-tag-alist '(
-        ("HOLD" . ?h)
-        ("CANCEL" . ?c)
-        ("CALL" . ?l)
-        ("EMAIL" . ?e)
-        ("WAITING" . ?w)
-        ("AGENDA" . ?a)
-        ("METTING" . ?m)
-    ))
-    ;;(setq org-bullets-bullet-list '("☰" "☲" "☱" "☴" "☵" "☶" "☳" "☷"))
-    (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\|txt\\)$" . org-mode))
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode t)))
-    (setq org-agenda-files 
-        (list 
-            "./agenda/agenda.org"
-            "./agenda/anywhere.org"
-            "./agenda/all-mail.org"
-            "./agenda/company.org"
-            "./agenda/computer.org"
-            "./agenda/errands.org"
-            "./agenda/home.org"
-            "./agenda/maybe.org"
-            "./agenda/shopping.org"
-            "./agenda/waiting-for.org"
-        )
-    )
-    (defun org-insert-src-block (src-code-type)
-        (interactive
-            (let ((src-code-types
-            '("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
-                "calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
-                "octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
-                "haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
-                "scheme" "sqlite")))
-            (list (ido-completing-read "Source code type: " src-code-types)))
-        )
-        (progn
-            (newline-and-indent)
-            (insert (format "#+BEGIN_SRC %s\n" src-code-type))
-            (newline-and-indent)
-            (insert "#+END_SRC\n")
-            (previous-line 2)
-            (org-edit-src-code)
-        )
-    )
     (setq org-src-fontify-natively t)
     :bind
-    ("\C-c l" . org-store-link)
-    ("\C-c a" . org-agenda)
-    ("\C-c b" . org-iswitchb)
+    ("C-c l" . org-store-link)
+    ("C-c a" . org-agenda)
+    ("C-c b" . org-iswitchb)
     :config
     (org-mode)
-    (auto-image-file-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -279,6 +212,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package simpleclip
+    :defer t
     :config
     (simpleclip-mode)
     :bind 
@@ -292,6 +226,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package recentf
+    :defer t
     :init
     (setq recentf-max-menu-item 10)
     :config
@@ -305,6 +240,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package switch-window
+    :defer t
     :bind
     ("C-x o" . switch-window)
 )
