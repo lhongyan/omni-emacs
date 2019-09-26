@@ -147,12 +147,14 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package simpleclip
+    :init
+    (global-set-key (kbd "M-w") nil)
     :config
     (simpleclip-mode)
     :bind 
+    ("M-w" . simpleclip-copy)
     ("C-w" . simpleclip-cut)
     ("C-y" . simpleclip-paste)
-    ("M-w" . simpleclip-copy)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
