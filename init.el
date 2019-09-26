@@ -18,11 +18,12 @@
         use-package
         expand-region
         ace-jump-mode
-        which-key
         simpleclip
-        spacemacs-theme
+        switch-window
+        which-key
         company
         yasnippet
+        spacemacs-theme
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -77,7 +78,7 @@
     ;;write encode
     (setq default-buffer-file-coding-system 'utf-8)
     ;; cursor style like "|"
-    (setq cursor-type 'bar)
+    (setq-default cursor-type 'bar)
 )
 
 (use-package emacs
@@ -229,10 +230,11 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package org 
+    :ensure t
     :defer t
     :init
     (setq org-startup-indented t)
-    (setq org-src-fontify-natively t)
+    (setq org-export-backends (quote (ascii html icalendar latex md)))
     :bind
     ("C-c l" . org-store-link)
     ("C-c a" . org-agenda)
