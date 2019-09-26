@@ -24,6 +24,7 @@
         company
         yasnippet
         spacemacs-theme
+        json-mode
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
