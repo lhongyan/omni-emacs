@@ -242,8 +242,23 @@
     ("C-c l" . org-store-link)
     ("C-c a" . org-agenda)
     ("C-c b" . org-iswitchb)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; json Mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package json-mode
+    :defer t
     :config
-    (org-mode)
+    (defun json-pretty()
+        (interactive)
+        (json-pretty-print-buffer)
+    )
+    (defun json-minify()
+        (interactive)
+        (message "还没有开发...")
+    )
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
