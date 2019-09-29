@@ -59,7 +59,7 @@
     ;; theme
     (load-theme 'spacemacs-dark t)
     ;; frame title
-    (setq frame-title-format '("" "Emacs " emacs-version))
+    (setq frame-title-format '("" "GNU Emacs " emacs-version))
     ;; no backup
     (setq make-backup-files nil)
     ;; close home page
