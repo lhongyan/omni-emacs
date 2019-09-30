@@ -25,6 +25,7 @@
         yasnippet
         spacemacs-theme
         json-mode
+        counsel
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
