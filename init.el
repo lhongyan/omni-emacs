@@ -137,9 +137,9 @@
 
 (use-package ace-jump-mode
     :bind
-    ("C-' w" . ace-jump-word-mode)
-    ("C-' c" . ace-jump-char-mode)
-    ("C-' l" . ace-jump-line-mode)
+    ("M-g w" . ace-jump-word-mode)
+    ("M-g c" . ace-jump-char-mode)
+    ("M-g l" . ace-jump-line-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
