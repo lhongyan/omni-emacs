@@ -16,6 +16,7 @@
 ;; Packages
 (defvar my/packages '(
         use-package
+        helm
         expand-region
         ace-jump-mode
         simpleclip
@@ -112,6 +113,26 @@
     :bind
     ("M-w" . c_r_o_w_l)
     ("C-w" . k_r_o_w_l)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; helm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package helm
+    :ensure t
+    :defer t
+    :init
+    (setq helm-M-x-fuzzy-match t)
+    (setq helm-buffers-fuzzy-matching t)
+    (setq helm-recentf-fuzzy-match t)
+    (require 'helm-config)
+    :bind 
+    ("M-x" . helm-M-x)
+    ("C-x C-b" . helm-buffers-list)
+    ("C-x b" . helm-buffers-list)
+    :config
+    (helm-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
