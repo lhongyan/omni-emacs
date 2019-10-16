@@ -259,6 +259,33 @@
     :init
     (setq org-startup-indented t)
     (setq org-export-backends (quote (ascii html icalendar latex md)))
+    :config
+    ;; 使用 M-x org-insert-src-block 插入源码块
+    (defun org-insert-src-block (src-code-type)
+        (interactive
+            (let 
+                (
+                    (src-code-types
+                        '("emacs-lisp" "python" "C" "sh" "java" "js" "clojure" "C++" "css"
+                            "calc" "asymptote" "dot" "gnuplot" "ledger" "lilypond" "mscgen"
+                            "octave" "oz" "plantuml" "R" "sass" "screen" "sql" "awk" "ditaa"
+                            "haskell" "latex" "lisp" "matlab" "ocaml" "org" "perl" "ruby"
+                            "scheme" "sqlite"
+                        )
+                    )
+                )
+                (list (ido-completing-read "Source code type: " src-code-types))
+            )
+        )
+        (progn
+            (newline-and-indent)
+            (insert (format "#+BEGIN_SRC %s\n" src-code-type))
+            (newline-and-indent)
+            (insert "#+END_SRC\n")
+            (previous-line 2)
+            (org-edit-src-code)
+        )
+    )
     :bind
     ("C-c l" . org-store-link)
     ("C-c a" . org-agenda)
