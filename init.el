@@ -81,6 +81,8 @@
     (setq default-buffer-file-coding-system 'utf-8)
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
+    ;; solve kill ring is empty
+    (setq select-enable-primary t)
 )
 
 (use-package emacs
