@@ -15,17 +15,18 @@
 
 ;; Packages
 (defvar my/packages '(
-        use-package
-        helm
-        expand-region
-        ace-jump-mode
-        simpleclip
-        switch-window
-        which-key
-        company
-        yasnippet
-        spacemacs-theme
-        json-mode
+    use-package
+    helm
+    expand-region
+    ace-jump-mode
+    simpleclip
+    switch-window
+    which-key
+    company
+    yasnippet
+    spacemacs-theme
+    json-mode
+    multiple-cursors
 ) "Default packages")
 
 (setq package-selected-packages my/packages)
@@ -307,8 +308,18 @@
     )
     (defun json-minify()
         (interactive)
-        (message "还没有开发...")
+        (message "还没有开发...")   
     )
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; multiple-cursors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package multiple-cursors
+    :defer t
+    :bind
+    ("C->" . mc/mark-next-like-this)
+    ("C-<" . mc/mark-previous-like-this)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
