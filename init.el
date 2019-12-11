@@ -1,4 +1,4 @@
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; package manager
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -59,9 +59,9 @@
     ;; open selection delete mode
     (delete-selection-mode 1)
     ;; theme
-    (load-theme 'spacemacs-dark t)
+    (load-theme 'gruvbox t)
     ;; frame title
-    (setq frame-title-format '("" "GNU Emacs " emacs-version))
+    (setq frame-title-format '("" "GNU Emacs 26.3"))
     ;; no backup
     (setq make-backup-files nil)
     ;; close home page
@@ -321,6 +321,16 @@
     ("C->" . mc/mark-next-like-this)
     ("C-<" . mc/mark-previous-like-this)
 )
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; markdown
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package markdown-mode
+  :defer t
+  :bind
+  ("M-<UP>" . markdown-move-up)
+)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
