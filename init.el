@@ -47,6 +47,19 @@
 ;;;; emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; encoding
+(set-language-environment 'Chinese-GB)
+(set-default buffer-file-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
+(setq-default pathname-coding-system 'euc-cn)
+(setq file-name-coding-system 'euc-cn)
+(prefer-coding-system 'cp950)
+(prefer-coding-system 'gb2312)
+(prefer-coding-system 'cp936)
+(prefer-coding-system 'utf-16)
+(prefer-coding-system 'utf-8-dos)
+(prefer-coding-system 'utf-8-unix)
+
 (use-package emacs
     :defer t
     :init
@@ -76,10 +89,6 @@
     (setq default-tab-width 4)
     ;; indent
     (setq default-indent-tabs-mode nil)
-    ;; read encode
-    (setq prefer-coding-system 'utf-8)
-    ;;write encode
-    (setq default-buffer-file-coding-system 'utf-8)
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
     ;; solve kill ring is empty
@@ -260,7 +269,7 @@
     :ensure t
     :defer t
     :init
-    (setq org-startup-indented t)
+    (setq org-startup-indented nil)
     (setq org-export-backends (quote (ascii html icalendar latex md)))
     :config
     ;; 使用 M-x org-insert-src-block 插入源码块
@@ -326,11 +335,11 @@
 ;;;; markdown
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (use-package markdown-mode
-  :defer t
-  :bind
-  ("M-<UP>" . markdown-move-up)
+    :defer t
+    :bind
+    ("C-c k" . markdown-move-up)
+    ("C-c j" . markdown-move-down)
 )
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
