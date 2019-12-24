@@ -1,6 +1,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; package manager
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; package
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (when (>= emacs-major-version 24)
     (require 'package)
@@ -15,19 +15,22 @@
 
 ;; Packages
 (defvar my/packages '(
-    use-package
-    helm
-    expand-region
-    ace-jump-mode
-    simpleclip
-    switch-window
-    which-key
-    company
-    yasnippet
-    spacemacs-theme
-    json-mode
-    multiple-cursors
-) "Default packages")
+        use-package
+        helm
+        expand-region
+        ace-jump-mode
+        simpleclip
+        switch-window
+        which-key
+        company
+        yasnippet
+        json-mode
+        multiple-cursors
+        projectile
+        disable-mouse
+    ) 
+    "Default packages"
+)
 
 (setq package-selected-packages my/packages)
 
@@ -41,28 +44,24 @@
     (package-refresh-contents)
     (dolist (pkg my/packages)
         (when (not (package-installed-p pkg))
-	(package-install pkg))))
+            (package-install pkg)
+        )
+    )
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; emacs
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; encoding
-(set-language-environment 'Chinese-GB)
-(set-default buffer-file-coding-system 'utf-8-unix)
-(set-default-coding-systems 'utf-8-unix)
-(setq-default pathname-coding-system 'euc-cn)
-(setq file-name-coding-system 'euc-cn)
-(prefer-coding-system 'cp950)
-(prefer-coding-system 'gb2312)
-(prefer-coding-system 'cp936)
-(prefer-coding-system 'utf-16)
-(prefer-coding-system 'utf-8-dos)
-(prefer-coding-system 'utf-8-unix)
-
+;; style and action
 (use-package emacs
     :defer t
     :init
+    ;; window size and position
+    (set-frame-width (selected-frame) (string-to-number (getenv "EMACS_FRAME_WIDTH")))
+    (set-frame-height (selected-frame) (string-to-number (getenv "EMACS_FRAME_HEIGHT")))
+    (set-frame-position (selected-frame) (string-to-number (getenv "EMACS_FRAME_POSITION_LEFT")) (string-to-number (getenv "EMACS_FRAME_POSITION_RIGHT")))
+    (cua-mode t)
     ;; close tool bar
     (tool-bar-mode -1)
     ;; close menu bar
@@ -74,7 +73,7 @@
     ;; theme
     (load-theme 'gruvbox t)
     ;; frame title
-    (setq frame-title-format '("" "GNU Emacs 26.3"))
+    (setq frame-title-format '("" "MEmacs"))
     ;; no backup
     (setq make-backup-files nil)
     ;; close home page
@@ -85,66 +84,82 @@
     (setq ring-bell-function 'ignore)
     ;; close bell
     (setq visible-bell nil)
-    ;; tab size
-    (setq default-tab-width 4)
-    ;; indent
-    (setq default-indent-tabs-mode nil)
     ;; cursor style like "|"
     (setq-default cursor-type 'bar)
     ;; solve kill ring is empty
     (setq select-enable-primary t)
-)
-
-(use-package emacs
-    :defer t
+    ;; English Font
+    (set-face-attribute 'default nil :font (getenv "EMACS_ENGLISH_FONT"))
+    ;; Chinese Font
+    (dolist 
+        (charset '(kana han symbol cjk-misc bopomofo))
+        (set-fontset-font (frame-parameter nil 'font) charset (font-spec :family (getenv "EMACS_CHINESE_FONT") :size (string-to-number (getenv "EMACS_CHINESE_FONT_SIZE"))))
+    )
     :if (display-graphic-p)
     :init (scroll-bar-mode -1)
 )
 
+;; encoding
+(use-package emacs
+    :init
+    (set-language-environment 'Chinese-GB)
+    (set-default buffer-file-coding-system 'utf-8-unix)
+    (set-default-coding-systems 'utf-8-unix)
+    (setq-default pathname-coding-system 'euc-cn)
+    (setq file-name-coding-system 'euc-cn)
+    (prefer-coding-system 'cp950)
+    (prefer-coding-system 'gb2312)
+    (prefer-coding-system 'cp936)
+    (prefer-coding-system 'utf-16)
+    (prefer-coding-system 'utf-8-dos)
+    (prefer-coding-system 'utf-8-unix)
+)
+
+;; functions and bindings
 (use-package emacs
     :defer t
     :init
+    ;; copy region
     (defun c_r_o_w_l()
         (interactive)
         (if mark-active (simpleclip-copy (region-beginning) (region-end))
-            (progn
-                (simpleclip-copy (line-beginning-position) (line-end-position))
-                (message "copied line")
+            (progn (simpleclip-copy (line-beginning-position) (line-end-position))
+                (message "copied line")
             )
         )
     )
+    ;; cut region
     (defun k_r_o_w_l()
         (interactive)
         (if mark-active (simpleclip-cut (region-beginning) (region-end))
-            (progn
-                (simpleclip-cut (line-beginning-position) (line-end-position))
-                (message "killed line")
+            (progn (simpleclip-cut (line-beginning-position) (line-end-position))
+                (message "killed line")
             )
         )
+    )
+    ;; open config
+    (defun open-config-dir()
+        (interactive)
+	    (find-file (getenv "EMACS_CONFIG_DIR"))
+    )
+    ;; open jianguoyun
+    (defun open-jianguoyun()
+        (interactive)
+	    (find-file (getenv "JIANGUOYUN_DIR"))
+    )
+    ;; open diary
+    (defun organized-my-life()
+        (interactive)
+        (setq month (concatenate "\\" (format-time-string "%m" (current-time)) "月" "\\"))
+        (setq day  (concatenate (format-time-string "%d" (current-time)) "日" "\\"))
+        (find-file (concatenate 'string (getenv "OML_DIR") month day "oml.org"))
     )
     :bind
     ("M-w" . c_r_o_w_l)
     ("C-w" . k_r_o_w_l)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; helm
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package helm
-    :ensure t
-    :defer t
-    :init
-    (setq helm-M-x-fuzzy-match t)
-    (setq helm-buffers-fuzzy-matching t)
-    (setq helm-recentf-fuzzy-match t)
-    (require 'helm-config)
-    :bind 
-    ("M-x" . helm-M-x)
-    ("C-x C-b" . helm-buffers-list)
-    ("C-x b" . helm-buffers-list)
-    :config
-    (helm-mode)
+    ("<f5> c" . open-config-dir)
+    ("<f5> j" . open-jianguoyun)
+    ("<f5> o" . organized-my-life)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -165,7 +180,7 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; ace jump
+;;;; quick jump
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ace-jump-mode
@@ -228,6 +243,57 @@
     (which-key-setup-minibuffer)
 )
 
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; multiple-cursors
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package multiple-cursors
+    :defer t
+    :bind
+    ("C->" . mc/mark-next-like-this)
+    ("C-<" . mc/mark-previous-like-this)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; disable-mouse
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package disable-mouse
+    :config
+    (global-disable-mouse-mode)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; projectile
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package projectile
+    :defer t
+    :config
+    (projectile-mode +1)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; helm
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package helm
+    :ensure t
+    :defer t
+    :init
+    (setq helm-M-x-fuzzy-match t)
+    (setq helm-buffers-fuzzy-matching t)
+    (setq helm-recentf-fuzzy-match t)
+    (require 'helm-config)
+    :bind 
+    ("M-x" . helm-M-x)
+    ("C-x C-b" . helm-buffers-list)
+    ("C-x b" . helm-buffers-list)
+    :config
+    (helm-mode)
+)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; company
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -262,7 +328,7 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Org Mode
+;;;; Org
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package org 
@@ -305,6 +371,17 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;; markdown
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package markdown-mode
+    :defer t
+    :bind
+    ("C-c k" . markdown-move-up)
+    ("C-c j" . markdown-move-down)
+)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; json Mode
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -322,36 +399,18 @@
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; multiple-cursors
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package multiple-cursors
-    :defer t
-    :bind
-    ("C->" . mc/mark-next-like-this)
-    ("C-<" . mc/mark-previous-like-this)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; markdown
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(use-package markdown-mode
-    :defer t
-    :bind
-    ("C-c k" . markdown-move-up)
-    ("C-c j" . markdown-move-down)
-)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; show startup time
 (add-hook 'emacs-startup-hook 
-(lambda () 
-    (message "Emacs ready in %s with %d garbage collections." 
-        (format "%.2f seconds" 
-            (float-time 
-                (time-subtract after-init-time before-init-time))) 
-    gcs-done)
-))
+    (lambda () 
+        (message "Emacs ready in %s with %d garbage collections." 
+            (format "%.2f seconds" 
+                (float-time (time-subtract after-init-time before-init-time))
+            ) 
+            gcs-done
+        )
+    )
+)
 
 (provide 'init)

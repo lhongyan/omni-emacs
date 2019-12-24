@@ -15,3 +15,5 @@ init-local.el
 
 # ignore test
 test*
+
+backup.txt
