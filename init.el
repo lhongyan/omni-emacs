@@ -318,7 +318,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package yasnippet
-    :defer t
     :init
     (setq yas-snippet-dirs '("D:/学习项目/awesome-emacs/snippets"))
     :config
