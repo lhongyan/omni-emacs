@@ -3,8 +3,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package flycheck
-	:init (global-flycheck-mode)
-    :hook (prog-mode . flycheck-mode))
+    :init (global-flycheck-mode)
+    :hook (prog-mode . flycheck-mode)
 )
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

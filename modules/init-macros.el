@@ -48,7 +48,7 @@
 
 ;; 删除""及之间的数据
 (fset 'delete-english-double-quota-outer-text
-   [?\C-r ?\" return ?\C-@ ?\C-s ?\" return ?\C-s ?\" return backspace])
+    [?\C-r ?\" return ?\C-@ ?\C-s ?\" return ?\C-s ?\" return backspace])
 
 ;; 删除[]之间的数据
 (fset 'delete-english-square-bracket-inner-text

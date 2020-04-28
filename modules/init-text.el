@@ -11,6 +11,8 @@
 
 (delete-selection-mode t)
 
+(use-package expand-region)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (provide 'init-text)

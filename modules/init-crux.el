@@ -3,7 +3,8 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package crux 
-    :bind ("C-c k" . crux-smart-kill-line))
+    :bind ("C-c k" . crux-smart-kill-line)
+)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
