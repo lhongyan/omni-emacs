@@ -12,12 +12,10 @@
 
 # ignore local file which includes myself information
 init-local.el
+custom.el
+local.el
 
 # ignore test
 test*
-
-# ignore custome
-custome.el
-local.el
 
 backup.txt
