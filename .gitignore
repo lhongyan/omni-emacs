@@ -16,4 +16,8 @@ init-local.el
 # ignore test
 test*
 
+# ignore custome
+custome.el
+local.el
+
 backup.txt
