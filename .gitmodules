@@ -10,3 +10,6 @@
 [submodule "vendor/emacs-snippets"]
 	path = vendor/emacs-snippets
 	url = https://github.com/lhongyan/emacs-snippets.git
+[submodule "vendor/emacs-macros"]
+	path = vendor/emacs-macros
+	url = https://github.com/lhongyan/emacs-macros.git
