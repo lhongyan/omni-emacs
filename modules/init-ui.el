@@ -5,7 +5,7 @@
 (use-package emacs
 	:init
 	;; 设置标题
-	(setq frame-title-format '("" "OmniEditor"))
+	(setq frame-title-format '("" "OmniEmacs"))
 	;; 关闭备份
 	(setq make-backup-files nil)
 	;; 关闭自动保存
