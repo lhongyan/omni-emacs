@@ -7,3 +7,6 @@
 [submodule "vendor/yasnippet-snippets"]
 	path = vendor/yasnippet-snippets
 	url = https://github.com/AndreaCrotti/yasnippet-snippets
+[submodule "vendor/emacs-snippets"]
+	path = vendor/emacs-snippets
+	url = https://github.com/lhongyan/emacs-snippets.git
