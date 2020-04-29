@@ -13,3 +13,6 @@
 [submodule "vendor/emacs-macros"]
 	path = vendor/emacs-macros
 	url = https://github.com/lhongyan/emacs-macros.git
+[submodule "vendor/emmet-mode"]
+	path = vendor/emmet-mode
+	url = https://github.com/smihica/emmet-mode.git
