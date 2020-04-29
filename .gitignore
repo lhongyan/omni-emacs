@@ -16,6 +16,20 @@ custom.el
 local.el
 private/*
 
+# ignore emacs files
+.local/*
+.cache/*
+elpa*/*
+auto-save-list/*
+site-lisp/*
+.github/*
+transient/*
+bookmarks
+recentf
+
+# ignore local vendor
+vendor/local-*
+
 # ignore test
 test*
 
