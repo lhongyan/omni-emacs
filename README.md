@@ -7,26 +7,10 @@
 
 ## Install
 
-* 下载项目
+* download project：`git clone https://github.com/lhongyan/omni-emacs.git`
+* download sub project：`git submodule update --init --recursive`
 
-```
-git clone https://github.com/lhongyan/omni-emacs.git
-```
+## Update
 
-* 更新项目
-
-```
-git pull
-```
-
-* 下载子模块
-
-```
-git submodule update --init --recursive
-```
-
-* 更新子模块
-
-```
-git submodule foreach git pull origin master
-```
+* update project：`git pull`
+* update sub project：`git submodule foreach git pull origin master`
