@@ -10,6 +10,8 @@
 # Undo-tree save-files
 *.~undo-tree
 
+.DS_Store
+
 # ignore local file which includes myself information
 init-local.el
 custom.el
