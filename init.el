@@ -54,6 +54,7 @@
         emmet-mode
 	hydra
 	smartparens
+    magit
     ) 
     "Default packages"
 )
