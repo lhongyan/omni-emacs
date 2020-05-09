@@ -16,3 +16,9 @@
 [submodule "vendor/emmet-mode"]
 	path = vendor/emmet-mode
 	url = https://github.com/smihica/emmet-mode.git
+[submodule "vendor/idea-darkula-theme"]
+	path = vendor/idea-darkula-theme
+	url = https://github.com/fourier/idea-darkula-theme
+[submodule "vendor/meaculpa-theme"]
+	path = vendor/meaculpa-theme
+	url = https://github.com/lhongyan/meaculpa-theme.git

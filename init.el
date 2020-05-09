@@ -54,7 +54,7 @@
         emmet-mode
 	hydra
 	smartparens
-    magit
+        cnfonts
     ) 
     "Default packages"
 )

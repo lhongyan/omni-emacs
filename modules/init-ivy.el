@@ -12,6 +12,8 @@
         ivy-count-format "%d/%d " 
         enable-recursive-minibuffers t 
         ivy-re-builders-alist '((t . ivy--regex-ignore-order)))
+    :init
+    (setq ivy-height 20)
 )
 
 
