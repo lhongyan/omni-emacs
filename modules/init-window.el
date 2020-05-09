@@ -29,7 +29,7 @@
 	:init
 	(progn
 		(global-linum-mode t)
-		(setq linum-format "%7d")
+		(setq linum-format "%4d")
 	)
 )
 

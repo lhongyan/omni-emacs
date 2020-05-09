@@ -3,6 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package org 
+	:defer 2
 	:init
 	(setq inhibit-compacting-font-caches t)
 	(setq org-startup-indented t)
