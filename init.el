@@ -16,6 +16,9 @@
 ;; package list
 (defvar my/packages '(
         use-package
+	ivy
+	swiper
+	counsel
         helm
         company
         company-quickhelp

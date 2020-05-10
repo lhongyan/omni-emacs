@@ -22,3 +22,6 @@
 [submodule "vendor/meaculpa-theme"]
 	path = vendor/meaculpa-theme
 	url = https://github.com/lhongyan/meaculpa-theme.git
+[submodule "vendor/emacs-color-theme-solarized"]
+	path = vendor/emacs-color-theme-solarized
+	url = https://github.com/sellout/emacs-color-theme-solarized.git
