@@ -7,7 +7,6 @@
     (package-initialize)
     (setq package-archives '(
         ("melpa" . "http://elpa.emacs-china.org/melpa/")
-        ("gnu"   . "http://elpa.emacs-china.org/gnu/")
     )
 ))
 
@@ -31,20 +30,15 @@
         markdown-mode
         deft
         disable-mouse
-	neotree
-    	
+	    neotree
     	diminish
     	kaesar-file
-        
         spaceline
-
         benchmark-init
         crux
         drag-stuff
-
-	avy
+	    avy
         nyan-mode
-        ;; code
         lsp-mode
         lsp-ui
         lsp-treemacs 
@@ -52,9 +46,12 @@
         helm-lsp
         flycheck
         emmet-mode
-	hydra
-	smartparens
+	    hydra
+	    smartparens
         cnfonts
+        linum-relative
+        color-theme-sanityinc-tomorrow
+        color-theme-sanityinc-solarized
     ) 
     "Default packages"
 )
@@ -84,12 +81,6 @@
 )
 
 (setq gc-cons-threshold most-positive-fixnum)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; load custom
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-(use-package init-local)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
