@@ -2,9 +2,9 @@
 ;;;; theme
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(require 'color-theme-sanityinc-tomorrow)
-(color-theme-sanityinc-tomorrow--define-theme night)
+(require 'color-theme-sanityinc-solarized)
+(color-theme-sanityinc-solarized--define-theme night)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(provide 'init-theme)
+(provide 'solarized-dark-theme)
